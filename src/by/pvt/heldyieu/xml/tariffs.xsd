@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="mobileProvider" type="mobileProviderType" />
+	<xs:complexType name="mobileProviderType">
+		<xs:sequence>
+			<xs:element name="tariffs" type="tariffsType" minOccurs="1"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tariffsType">
+		<xs:sequence>
+			<xs:element name="tariff" type="tariffType" minOccurs="2"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tariffType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="operator-name" type="xs:string"/>
+			<xs:element name="payroll" type="xs:float"/>
+			<xs:element name="call-prices" type="call-pricesType"/>
+			<xs:element name="sms-price" type="xs:float"/>
+			<xs:element name="parameters" type="parametersType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="call-pricesType">
+		<xs:sequence>
+			<xs:element name="prices" type="pricesType"  maxOccurs="3"
+				minOccurs="3" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="parametersType">
+		<xs:sequence>
+			<xs:element name="favourite-number" type="xs:byte"/>
+			<xs:element name="tariffication">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="12sec"></xs:enumeration>
+						<xs:enumeration value="60sec"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subscribe-cost" type="xs:byte"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="pricesType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="id" type="xs:byte"  use="required" />
+				<xs:attribute name="name" type="xs:string"  use="required" />
+				<xs:attribute name="cost" type="xs:float"  use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

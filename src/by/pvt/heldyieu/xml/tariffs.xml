@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mobileProvider xsi:noNamespaceSchemaLocation="tariffs.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<tariffs>
+		<tariff>
+			<name>Стандарт</name>
+			<operator-name>МТС</operator-name>
+			<payroll>3.5</payroll>
+			<call-prices>
+				<prices id="1" name="inside-network" cost="1.5" />
+				<prices id="2" name="outside-network" cost="2.5" />
+				<prices id="3" name="state-calls" cost="4.5" />
+			</call-prices>
+			<sms-price>0.15</sms-price>
+			<parameters>
+				<favourite-number>3</favourite-number>
+				<tariffication>12sec</tariffication>
+				<subscribe-cost>3</subscribe-cost>
+			</parameters>
+		</tariff>
+		<tariff>
+			<name>Оптима</name>
+			<operator-name>МТС</operator-name>
+			<payroll>6.5</payroll>
+			<call-prices>
+				<prices id="1" name="inside-network" cost="0.5" />
+				<prices id="2" name="outside-network" cost="1.5" />
+				<prices id="3" name="state-calls" cost="3.5" />
+			</call-prices>
+			<sms-price>0.35</sms-price>
+			<parameters>
+				<favourite-number>5</favourite-number>
+				<tariffication>60sec</tariffication>
+				<subscribe-cost>5</subscribe-cost>
+			</parameters>
+		</tariff>
+	</tariffs>
+</mobileProvider>
