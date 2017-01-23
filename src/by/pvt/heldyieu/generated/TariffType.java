@@ -189,4 +189,14 @@ public class TariffType {
         this.parameters = value;
     }
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TariffType [name=" + name + ", operatorName=" + operatorName
+				+ ", payroll=" + payroll + ", callPrices=" + callPrices
+				+ ", smsPrice=" + smsPrice + ", parameters=" + parameters + "]";
+	}
+    
 }

@@ -93,8 +93,8 @@ public class ObjectFactory {
      * 
      */
     @XmlElementDecl(namespace = "", name = "mobileProvider")
-    public JAXBElement<MobileProviderType> createMobileProvider(MobileProviderType value) {
-        return new JAXBElement<MobileProviderType>(_MobileProvider_QNAME, MobileProviderType.class, null, value);
+    public JAXBElement<MobileProviderType> createMobileProvider() {
+        return new JAXBElement<MobileProviderType>(_MobileProvider_QNAME, MobileProviderType.class, null);
     }
 
 }

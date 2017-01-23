@@ -66,4 +66,5 @@ public class MobileProviderType {
         this.tariffs = value;
     }
 
+    
 }
