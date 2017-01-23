@@ -17,9 +17,9 @@
 		<xs:sequence>
 			<xs:element name="name" type="xs:string"/>
 			<xs:element name="operator-name" type="xs:string"/>
-			<xs:element name="payroll" type="xs:float"/>
+			<xs:element name="payroll" type="xs:double"/>
 			<xs:element name="call-prices" type="call-pricesType"/>
-			<xs:element name="sms-price" type="xs:float"/>
+			<xs:element name="sms-price" type="xs:double"/>
 			<xs:element name="parameters" type="parametersType"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -31,7 +31,7 @@
 	</xs:complexType>
 	<xs:complexType name="parametersType">
 		<xs:sequence>
-			<xs:element name="favourite-number" type="xs:byte"/>
+			<xs:element name="favourite-number" type="xs:double"/>
 			<xs:element name="tariffication">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -40,7 +40,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="subscribe-cost" type="xs:byte"/>
+			<xs:element name="subscribe-cost" type="xs:double"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="pricesType">
@@ -48,7 +48,7 @@
 			<xs:extension base="xs:string">
 				<xs:attribute name="id" type="xs:byte"  use="required" />
 				<xs:attribute name="name" type="xs:string"  use="required" />
-				<xs:attribute name="cost" type="xs:float"  use="required" />
+				<xs:attribute name="cost" type="xs:double"  use="required" />
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>

@@ -1,16 +1,16 @@
-package by.pvt.heldyieu.beans.unmarshaller;
+package by.pvt.heldyieu.unmarshaller;
 
 import java.io.File;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
-import by.pvt.heldyieu.beans.generated.MobileProviderType;
-import by.pvt.heldyieu.beans.generated.ObjectFactory;
-import by.pvt.heldyieu.beans.generated.TariffType;
-import by.pvt.heldyieu.beans.generated.TariffsType;
+import by.pvt.heldyieu.generated.MobileProviderType;
+import by.pvt.heldyieu.generated.ObjectFactory;
+import by.pvt.heldyieu.generated.TariffType;
+import by.pvt.heldyieu.generated.TariffsType;
 
-public class UnMarshall {
+public class UnMarshallWithXml {
 	public static void main(String[] args) throws JAXBException {
 	    //1. We need to create JAXContext instance
 	    JAXBContext jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
@@ -28,7 +28,7 @@ public class UnMarshall {
 	    TariffsType list = mobileObj.getTariffs();
 	    
 	    //Obtaining all the required data from the JAXB Root class instance.
-	    for ( TariffType tariff  : list.tariff){
+	    for ( TariffType tariff  : list.getTariff()){
 	    	System.out.println("name: "+tariff.getName());
 	    	System.out.println("operatorName: "+tariff.getOperatorName());
 	    	System.out.println("payroll: "+tariff.getPayroll());
