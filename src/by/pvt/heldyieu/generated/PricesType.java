@@ -129,4 +129,13 @@ public class PricesType {
         this.cost = value;
     }
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PricesType [value=" + value + ", id=" + id + ", name=" + name
+				+ ", cost=" + cost + "]";
+	}
+    
 }

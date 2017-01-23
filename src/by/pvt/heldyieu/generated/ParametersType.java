@@ -113,4 +113,14 @@ public class ParametersType {
         this.subscribeCost = value;
     }
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ParametersType [favouriteNumber=" + favouriteNumber
+				+ ", tariffication=" + tariffication + ", subscribeCost="
+				+ subscribeCost + "]";
+	}
+    
 }

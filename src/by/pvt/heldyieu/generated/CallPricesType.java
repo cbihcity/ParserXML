@@ -73,4 +73,14 @@ public class CallPricesType {
         return this.prices;
     }
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CallPricesType [prices=" + prices + "]";
+	}
+    
+    
+
 }

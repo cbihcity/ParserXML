@@ -73,4 +73,12 @@ public class TariffForCallsType {
         return this.tariff;
     }
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TariffForCallsType [tariff=" + tariff + "]";
+	}
+    
 }

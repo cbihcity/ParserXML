@@ -8,39 +8,47 @@
 	</xs:complexType>
 	<xs:complexType name="tariffsType">
 		<xs:sequence>
-			<xs:element type="tariffForInternetType" name="tariffForInternet"
+			<xs:element name="tariffForInternet" type="tariffForInternetType"
 				maxOccurs="1" minOccurs="1" />
-			<xs:element type="tariffForCallsType" name="tariffForCalls"
+			<xs:element name="tariffForCalls" type="tariffForCallsType"
 				maxOccurs="1" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tariffForCallsType">
 		<xs:sequence>
-			<xs:element type="tariffType" name="tariff" maxOccurs="unbounded"
+			<xs:element name="tariff" type="tariffType" maxOccurs="unbounded"
 				minOccurs="2" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tariffForInternetType">
 		<xs:sequence>
-			<xs:element type="tariffType" name="tariff" maxOccurs="unbounded"
+			<xs:element name="tariff" type="tariffType" maxOccurs="unbounded"
 				minOccurs="2" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tariffType">
 		<xs:sequence>
-			<xs:element type="xs:string" name="name" />
-			<xs:element type="xs:string" name="operator-name" />
-			<xs:element type="xs:double" name="payroll" />
-			<xs:element type="call-pricesType" name="call-prices" />
-			<xs:element type="xs:double" name="sms-price" />
-			<xs:element type="xs:double" name="free-gygabytes" minOccurs="0" maxOccurs="1"/>
-			<xs:element type="xs:int" name="free-minutes" minOccurs="0" maxOccurs="1" />
-			<xs:element type="parametersType" name="parameters" />
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="operator-name" type="xs:string"/>
+			<xs:element name="payroll">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:pattern value="[0-9].[0-9]{1,2}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="call-prices" type="call-pricesType"/>
+			<xs:element name="sms-price" type="xs:double"/>
+			<xs:element name="free-gygabytes" type="xs:double"
+				minOccurs="0" maxOccurs="1"/>
+			<xs:element name="free-minutes" type="xs:int" minOccurs="0"
+				maxOccurs="1"/>
+			<xs:element name="parameters" type="parametersType"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="parametersType">
 		<xs:sequence>
-			<xs:element type="xs:int" name="favourite-number" />
+			<xs:element name="favourite-number" type="xs:int" />
 			<xs:element name="tariffication">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -49,12 +57,12 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element type="xs:double" name="subscribe-cost" />
+			<xs:element name="subscribe-cost" type="xs:double" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="call-pricesType">
 		<xs:sequence>
-			<xs:element type="pricesType" name="prices" maxOccurs="3"
+			<xs:element name="prices" type="pricesType" maxOccurs="3"
 				minOccurs="3" />
 		</xs:sequence>
 	</xs:complexType>
