@@ -34,5 +34,21 @@
 				<subscribe-cost>5</subscribe-cost>
 			</parameters>
 		</tariff>
+		<tariff>
+			<name>Смарт</name>
+			<operator-name>Велком</operator-name>
+			<payroll>9.5</payroll>
+			<call-prices>
+				<prices id="1" name="inside-network" cost="0.1" />
+				<prices id="2" name="outside-network" cost="1" />
+				<prices id="3" name="state-calls" cost="2.5" />
+			</call-prices>
+			<sms-price>0.05</sms-price>
+			<parameters>
+				<favourite-number>4</favourite-number>
+				<tariffication>12sec</tariffication>
+				<subscribe-cost>1</subscribe-cost>
+			</parameters>
+		</tariff>
 	</tariffs>
 </mobileProvider>
