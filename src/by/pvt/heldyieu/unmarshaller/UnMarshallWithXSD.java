@@ -30,7 +30,7 @@ public class UnMarshallWithXSD {
 		@SuppressWarnings("unchecked")
 		JAXBElement<MobileProviderType> unmarshalledObject = (JAXBElement<MobileProviderType>) 
 				um.unmarshal(new File("src\\by\\pvt\\heldyieu\\xml\\tariffs.xml"));
-		unmarshalledObject.getValue().getTariffs().getTariff().forEach(item->System.out.println(item.toString()));
+		unmarshalledObject.getValue().getTariffs().getTariffForCalls().getTariff().forEach(item->System.out.println(item.toString()));
 		} catch (JAXBException e) {
 		e.printStackTrace();
 		} catch (SAXException e) {

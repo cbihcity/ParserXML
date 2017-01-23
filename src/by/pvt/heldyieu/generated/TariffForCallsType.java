@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for call-pricesType complex type.
+ * <p>Java class for tariffForCallsType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="call-pricesType">
+ * &lt;complexType name="tariffForCallsType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="prices" type="{}pricesType" maxOccurs="3" minOccurs="3"/>
+ *         &lt;element name="tariff" type="{}tariffType" maxOccurs="unbounded" minOccurs="2"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "call-pricesType", propOrder = {
-    "prices"
+@XmlType(name = "tariffForCallsType", propOrder = {
+    "tariff"
 })
-public class CallPricesType {
+public class TariffForCallsType {
 
     @XmlElement(required = true)
-    protected List<PricesType> prices;
+    protected List<TariffType> tariff;
 
     /**
-     * Gets the value of the prices property.
+     * Gets the value of the tariff property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the prices property.
+     * This is why there is not a <CODE>set</CODE> method for the tariff property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPrices().add(newItem);
+     *    getTariff().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PricesType }
+     * {@link TariffType }
      * 
      * 
      */
-    public List<PricesType> getPrices() {
-        if (prices == null) {
-            prices = new ArrayList<PricesType>();
+    public List<TariffType> getTariff() {
+        if (tariff == null) {
+            tariff = new ArrayList<TariffType>();
         }
-        return this.prices;
+        return this.tariff;
     }
 
 }

@@ -1,54 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mobileProvider xsi:noNamespaceSchemaLocation="tariffs.xsd"
+<mobileProvider xsi:schemaLocation="tariffs.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<tariffs>
-		<tariff>
-			<name>Стандарт</name>
-			<operator-name>МТС</operator-name>
-			<payroll>3.5</payroll>
-			<call-prices>
-				<prices id="1" name="inside-network" cost="1.5" />
-				<prices id="2" name="outside-network" cost="2.5" />
-				<prices id="3" name="state-calls" cost="4.5" />
-			</call-prices>
-			<sms-price>0.15</sms-price>
-			<parameters>
-				<favourite-number>3</favourite-number>
-				<tariffication>12sec</tariffication>
-				<subscribe-cost>3</subscribe-cost>
-			</parameters>
-		</tariff>
-		<tariff>
-			<name>Оптима</name>
-			<operator-name>МТС</operator-name>
-			<payroll>6.5</payroll>
-			<call-prices>
-				<prices id="1" name="inside-network" cost="0.5" />
-				<prices id="2" name="outside-network" cost="1.5" />
-				<prices id="3" name="state-calls" cost="3.5" />
-			</call-prices>
-			<sms-price>0.35</sms-price>
-			<parameters>
-				<favourite-number>5</favourite-number>
-				<tariffication>60sec</tariffication>
-				<subscribe-cost>5</subscribe-cost>
-			</parameters>
-		</tariff>
-		<tariff>
-			<name>Смарт</name>
-			<operator-name>Велком</operator-name>
-			<payroll>9.5</payroll>
-			<call-prices>
-				<prices id="1" name="inside-network" cost="0.1" />
-				<prices id="2" name="outside-network" cost="1" />
-				<prices id="3" name="state-calls" cost="2.5" />
-			</call-prices>
-			<sms-price>0.05</sms-price>
-			<parameters>
-				<favourite-number>4</favourite-number>
-				<tariffication>12sec</tariffication>
-				<subscribe-cost>1</subscribe-cost>
-			</parameters>
-		</tariff>
+		<tariffForInternet>
+			<tariff>
+				<name>Интернет премиум</name>
+				<operator-name>МТС</operator-name>
+				<payroll>5.5</payroll>
+				<call-prices>
+					<prices id="1" name="inside-network" cost="1.3" />
+					<prices id="2" name="outside-network" cost="2.2" />
+					<prices id="3" name="state-calls" cost="4.1" />
+				</call-prices>
+				<sms-price>0.15</sms-price>
+				<free-gygabytes>2</free-gygabytes>
+				<parameters>
+					<favourite-number>2</favourite-number>
+					<tariffication>12sec</tariffication>
+					<subscribe-cost>3</subscribe-cost>
+				</parameters>
+			</tariff>
+			<tariff>
+				<name>Смарт 1</name>
+				<operator-name>Велком</operator-name>
+				<payroll>9.75</payroll>
+				<call-prices>
+					<prices id="1" name="inside-network" cost="0.01" />
+					<prices id="2" name="outside-network" cost="11" />
+					<prices id="3" name="state-calls" cost="2.25" />
+				</call-prices>
+				<sms-price>0.05</sms-price>
+				<free-gygabytes>3</free-gygabytes>
+				<parameters>
+					<favourite-number>5</favourite-number>
+					<tariffication>12sec</tariffication>
+					<subscribe-cost>1</subscribe-cost>
+				</parameters>
+			</tariff>
+		</tariffForInternet>
+		<tariffForCalls>
+			<tariff>
+				<name>Стандарт</name>
+				<operator-name>МТС</operator-name>
+				<payroll>3.5</payroll>
+				<call-prices>
+					<prices id="1" name="inside-network" cost="1.5" />
+					<prices id="2" name="outside-network" cost="2.5" />
+					<prices id="3" name="state-calls" cost="4.5" />
+				</call-prices>
+				<sms-price>0.15</sms-price>
+				<free-minutes>200</free-minutes>
+				<parameters>
+					<favourite-number>3</favourite-number>
+					<tariffication>60sec</tariffication>
+					<subscribe-cost>3</subscribe-cost>
+				</parameters>
+			</tariff>
+			<tariff>
+				<name>Смарт</name>
+				<operator-name>Велком</operator-name>
+				<payroll>9.5</payroll>
+				<call-prices>
+					<prices id="1" name="inside-network" cost="0.1" />
+					<prices id="2" name="outside-network" cost="1" />
+					<prices id="3" name="state-calls" cost="2.5" />
+				</call-prices>
+				<sms-price>0.05</sms-price>
+				<free-minutes>290</free-minutes>
+				<parameters>
+					<favourite-number>4</favourite-number>
+					<tariffication>60sec</tariffication>
+					<subscribe-cost>1</subscribe-cost>
+				</parameters>
+			</tariff>
+		</tariffForCalls>		
 	</tariffs>
 </mobileProvider>
