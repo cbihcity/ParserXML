@@ -2,7 +2,7 @@ package by.pvt.heldyieu.beans.builders;
 
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.parameters.Parameters;
-import by.pvt.heldyieu.beans.tariffs.Tariff;
+import by.pvt.heldyieu.beans.tariff.Tariff;
 
 public class TariffForCallsBuilder extends AbstractTariffBuilder{
 

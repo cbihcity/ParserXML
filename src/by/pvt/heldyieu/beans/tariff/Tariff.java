@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.beans.tariffs;
+package by.pvt.heldyieu.beans.tariff;
 
 import java.util.Comparator;
 

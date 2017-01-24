@@ -9,7 +9,7 @@ import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.callprices.InitCallPrices;
 import by.pvt.heldyieu.beans.parameters.InitParameters;
 import by.pvt.heldyieu.beans.parameters.Parameters;
-import by.pvt.heldyieu.beans.tariffs.Tariff;
+import by.pvt.heldyieu.beans.tariff.Tariff;
 
 public class TariffForCalls {
 	
