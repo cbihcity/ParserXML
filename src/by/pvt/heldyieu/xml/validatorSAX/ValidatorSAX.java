@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.ValidatorSAX;
+package by.pvt.heldyieu.xml.validatorSAX;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.XMLConstants;

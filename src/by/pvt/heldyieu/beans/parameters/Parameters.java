@@ -125,8 +125,7 @@ public class Parameters {
 		 */
 		@Override
 		public String toString() {
-			return "Parameters [favouriteNumber=" + favouriteNumber
-					+ ", tariffication=" + tariffication + ", subscribeCost="
-					+ subscribeCost + "]";
+			return "количество любимых номеров :" + favouriteNumber	+ ", режим тарификации :" + tariffication + ", стоимость подписки :"
+					+ subscribeCost;
 		}
 }

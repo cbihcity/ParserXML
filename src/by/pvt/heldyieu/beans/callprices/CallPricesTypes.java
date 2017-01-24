@@ -4,8 +4,8 @@ import java.util.List;
 
 
 public class CallPricesTypes {
-	 protected List<CallPrices> listOfPrices;
-
+	 protected List<CallPrices> prices;
+	 
 	/**
 	 * 
 	 */
@@ -14,72 +14,25 @@ public class CallPricesTypes {
 	}
 
 	/**
-	 * @param listOfPrices
+	 * @param prices
 	 */
-	public CallPricesTypes(List<CallPrices> listOfPrices) {
+	public CallPricesTypes(List<CallPrices> prices) {
 		super();
-		this.listOfPrices = listOfPrices;
+		this.prices = prices;
 	}
 
 	/**
-	 * @return the listOfPrices
+	 * @return the prices
 	 */
-	public List<CallPrices> getListOfPrices() {
-		return listOfPrices;
+	public List<CallPrices> getPrices() {
+		return prices;
 	}
 
 	/**
-	 * @param listOfPrices the listOfPrices to set
+	 * @param prices the prices to set
 	 */
-	public void setListOfPrices(List<CallPrices> listOfPrices) {
-		this.listOfPrices = listOfPrices;
+	public void setPrices(List<CallPrices> prices) {
+		this.prices = prices;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((listOfPrices == null) ? 0 : listOfPrices.hashCode());
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (!(obj instanceof CallPricesTypes)) {
-			return false;
-		}
-		CallPricesTypes other = (CallPricesTypes) obj;
-		if (listOfPrices == null) {
-			if (other.listOfPrices != null) {
-				return false;
-			}
-		} else if (!listOfPrices.equals(other.listOfPrices)) {
-			return false;
-		}
-		return true;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "CallPricesTypes [listOfPrices=" + listOfPrices + "]";
-	}
-	 
-	
-	 
 }

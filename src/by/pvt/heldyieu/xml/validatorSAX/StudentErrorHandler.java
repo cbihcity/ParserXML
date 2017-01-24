@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.ValidatorSAX;
+package by.pvt.heldyieu.xml.validatorSAX;
 import java.io.IOException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;

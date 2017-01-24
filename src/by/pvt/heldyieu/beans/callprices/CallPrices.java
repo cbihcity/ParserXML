@@ -2,7 +2,6 @@ package by.pvt.heldyieu.beans.callprices;
 
 
 public class CallPrices {
-	    protected byte id;
 	    protected String name;
 	    protected double cost;
 		/**
@@ -16,23 +15,10 @@ public class CallPrices {
 		 * @param name
 		 * @param cost
 		 */
-		public CallPrices(byte id, String name, double cost) {
+		public CallPrices(String name, double cost) {
 			super();
-			this.id = id;
 			this.name = name;
 			this.cost = cost;
-		}
-		/**
-		 * @return the id
-		 */
-		public byte getId() {
-			return id;
-		}
-		/**
-		 * @param id the id to set
-		 */
-		public void setId(byte id) {
-			this.id = id;
 		}
 		/**
 		 * @return the name
@@ -69,7 +55,6 @@ public class CallPrices {
 			long temp;
 			temp = Double.doubleToLongBits(cost);
 			result = prime * result + (int) (temp ^ (temp >>> 32));
-			result = prime * result + id;
 			result = prime * result + ((name == null) ? 0 : name.hashCode());
 			return result;
 		}
@@ -92,9 +77,6 @@ public class CallPrices {
 					.doubleToLongBits(other.cost)) {
 				return false;
 			}
-			if (id != other.id) {
-				return false;
-			}
 			if (name == null) {
 				if (other.name != null) {
 					return false;
@@ -109,8 +91,7 @@ public class CallPrices {
 		 */
 		@Override
 		public String toString() {
-			return "CallPrices [id=" + id + ", name=" + name + ", cost=" + cost
-					+ "]";
+			return name + ":" + cost;
 		}
 	    
 }

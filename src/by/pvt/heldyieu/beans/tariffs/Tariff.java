@@ -2,25 +2,27 @@ package by.pvt.heldyieu.beans.tariffs;
 
 import java.util.Comparator;
 
+
+
+
+
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.parameters.Parameters;
 
-
-
-
 public class Tariff implements Comparator<Tariff> {
 
-	protected String name;
-    protected String operatorName;
-    protected double payroll;
-    protected CallPricesTypes callPrices;
-    protected double smsPrice;
-    protected Parameters parameters;
+		protected String name;
+	    protected String operatorName;
+	    protected double payroll;
+	    protected CallPricesTypes callPrices;
+	    protected double smsPrice;
+	    protected Double freeGygabytes;
+	    protected Integer freeMinutes;
+	    protected Parameters parameters;
     
 	public Tariff() {
 		super();
 	}
-
 
 	/**
 	 * @param name
@@ -28,19 +30,23 @@ public class Tariff implements Comparator<Tariff> {
 	 * @param payroll
 	 * @param callPrices
 	 * @param smsPrice
+	 * @param freeGygabytes
+	 * @param freeMinutes
 	 * @param parameters
 	 */
 	public Tariff(String name, String operatorName, double payroll,
-			CallPricesTypes callPrices, double smsPrice, Parameters parameters) {
+			CallPricesTypes listOfPrices, double smsPrice, double freeGygabytes,
+			int freeMinutes, Parameters parameters) {
 		super();
 		this.name = name;
 		this.operatorName = operatorName;
 		this.payroll = payroll;
-		this.callPrices = callPrices;
+		this.callPrices = listOfPrices;
 		this.smsPrice = smsPrice;
+		this.freeGygabytes = freeGygabytes;
+		this.freeMinutes = freeMinutes;
 		this.parameters = parameters;
 	}
-
 
 	/**
 	 * @return the name
@@ -49,14 +55,12 @@ public class Tariff implements Comparator<Tariff> {
 		return name;
 	}
 
-
 	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	/**
 	 * @return the operatorName
@@ -65,14 +69,12 @@ public class Tariff implements Comparator<Tariff> {
 		return operatorName;
 	}
 
-
 	/**
 	 * @param operatorName the operatorName to set
 	 */
 	public void setOperatorName(String operatorName) {
 		this.operatorName = operatorName;
 	}
-
 
 	/**
 	 * @return the payroll
@@ -81,7 +83,6 @@ public class Tariff implements Comparator<Tariff> {
 		return payroll;
 	}
 
-
 	/**
 	 * @param payroll the payroll to set
 	 */
@@ -89,6 +90,7 @@ public class Tariff implements Comparator<Tariff> {
 		this.payroll = payroll;
 	}
 
+	
 
 	/**
 	 * @return the callPrices
@@ -97,14 +99,12 @@ public class Tariff implements Comparator<Tariff> {
 		return callPrices;
 	}
 
-
 	/**
 	 * @param callPrices the callPrices to set
 	 */
 	public void setCallPrices(CallPricesTypes callPrices) {
 		this.callPrices = callPrices;
 	}
-
 
 	/**
 	 * @return the smsPrice
@@ -113,7 +113,6 @@ public class Tariff implements Comparator<Tariff> {
 		return smsPrice;
 	}
 
-
 	/**
 	 * @param smsPrice the smsPrice to set
 	 */
@@ -121,6 +120,33 @@ public class Tariff implements Comparator<Tariff> {
 		this.smsPrice = smsPrice;
 	}
 
+	/**
+	 * @return the freeGygabytes
+	 */
+	public double getFreeGygabytes() {
+		return freeGygabytes;
+	}
+
+	/**
+	 * @param freeGygabytes the freeGygabytes to set
+	 */
+	public void setFreeGygabytes(double freeGygabytes) {
+		this.freeGygabytes = freeGygabytes;
+	}
+
+	/**
+	 * @return the freeMinutes
+	 */
+	public int getFreeMinutes() {
+		return freeMinutes;
+	}
+
+	/**
+	 * @param freeMinutes the freeMinutes to set
+	 */
+	public void setFreeMinutes(int freeMinutes) {
+		this.freeMinutes = freeMinutes;
+	}
 
 	/**
 	 * @return the parameters
@@ -128,7 +154,6 @@ public class Tariff implements Comparator<Tariff> {
 	public Parameters getParameters() {
 		return parameters;
 	}
-
 
 	/**
 	 * @param parameters the parameters to set
@@ -146,19 +171,21 @@ public class Tariff implements Comparator<Tariff> {
 		int result = 1;
 		result = prime * result
 				+ ((callPrices == null) ? 0 : callPrices.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(freeGygabytes);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + freeMinutes;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result
 				+ ((operatorName == null) ? 0 : operatorName.hashCode());
 		result = prime * result
 				+ ((parameters == null) ? 0 : parameters.hashCode());
-		long temp;
 		temp = Double.doubleToLongBits(payroll);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(smsPrice);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -180,6 +207,13 @@ public class Tariff implements Comparator<Tariff> {
 				return false;
 			}
 		} else if (!callPrices.equals(other.callPrices)) {
+			return false;
+		}
+		if (Double.doubleToLongBits(freeGygabytes) != Double
+				.doubleToLongBits(other.freeGygabytes)) {
+			return false;
+		}
+		if (freeMinutes != other.freeMinutes) {
 			return false;
 		}
 		if (name == null) {
@@ -214,9 +248,24 @@ public class Tariff implements Comparator<Tariff> {
 		return true;
 	}
 
-
 	@Override
 	public int compare(Tariff tariff1, Tariff tariff2) {
 		return Double.compare(tariff1.getPayroll(), tariff2.getPayroll());
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "“ариф :"
+				+ (name != null ? name + ", " : "")
+				+ (operatorName != null ? "»м€ мобильного оператора :" + operatorName + ", ": "")
+				+ "абоненстка€ плата :" + payroll + ", "+callPrices+ "стоимость смс :"	+ smsPrice + ", " + (freeGygabytes != null ? "количество свободного интернет трафика :" + freeGygabytes
+				+ ", " : "")+ (freeMinutes != null ? "количество бесплатных минут :" + freeMinutes + ", " : "")
+				+ (parameters != null ? "дополнительные параметры :" + parameters : "") + "]";
+	}
+
+
+	
 }
