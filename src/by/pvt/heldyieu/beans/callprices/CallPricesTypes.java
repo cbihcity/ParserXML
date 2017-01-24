@@ -35,4 +35,15 @@ public class CallPricesTypes {
 		this.prices = prices;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		prices.forEach(item->sb.append(item.getName()+" - "+item.getCost()+", "));
+		return "разновидность стоимости звонков : "+ sb;
+	}
+
+	
 }

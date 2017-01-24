@@ -33,7 +33,7 @@ public class TariffForCalls {
 		List<CallPrices> callsPrice = InitCallPrices.init("tariffForCalls");
 		Parameters parameter = InitParameters.init("tariffForCalls");
 		TariffForCallsBuilder builder = new TariffForCallsBuilder();
-		builder.buildName("Стандарт");builder.buildOperatorName("МТС");builder.buildPayroll(3.5);
+		builder.buildName("Стандарт");builder.buildOperatorName("МТС");builder.buildPayroll(5.5);
 		builder.buildSmsPrice(0.15);builder.buildFreeMinutes(200);
 		builder.buildListOfPrices(new CallPricesTypes(callsPrice));
 		builder.buildParameters(parameter);
