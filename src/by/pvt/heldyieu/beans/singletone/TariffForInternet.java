@@ -10,8 +10,9 @@ import by.pvt.heldyieu.beans.callprices.InitCallPrices;
 import by.pvt.heldyieu.beans.parameters.InitParameters;
 import by.pvt.heldyieu.beans.parameters.Parameters;
 import by.pvt.heldyieu.beans.tariff.Tariff;
+import by.pvt.heldyieu.interfaces.Constants;
 
-public class TariffForInternet {
+public class TariffForInternet implements Constants {
 
 	private static TariffForInternet tariffForInternet;
 	private ArrayList<Tariff> listOfTariff;
@@ -23,6 +24,13 @@ public class TariffForInternet {
 	public ArrayList<Tariff> getListOfTariff() {
 		return listOfTariff;
 	}
+	
+	
+	public void setListOfTariff(ArrayList<Tariff> listOfTariff) {
+		this.listOfTariff = listOfTariff;
+	}
+
+
 
 	private TariffForInternet(){
 		listOfTariff = createTariff();
@@ -30,8 +38,8 @@ public class TariffForInternet {
 	
 	private ArrayList<Tariff> createTariff() {
 		ArrayList<Tariff> temp = new ArrayList<Tariff>();
-		List<CallPrices> callsPrice = InitCallPrices.init("tariffForInternet");
-		Parameters parameter = InitParameters.init("tariffForInternet");
+		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_INTERNET);
+		Parameters parameter = InitParameters.init(TARIFF_FOR_INTERNET);
 		TariffForInernetBuilder builder = new TariffForInernetBuilder();
 		builder.buildName("Смарт 1");builder.buildOperatorName("Велком");builder.buildPayroll(3.5);
 		builder.buildSmsPrice(0.15);builder.buildFreeGygabytes(2.0);
@@ -53,7 +61,7 @@ public class TariffForInternet {
 	 */
 	@Override
 	public String toString() {
-		return "TariffForInternet [listOfTariff=" + listOfTariff + "]";
+		return "\nТарифы для интернета";
 	}
 	
 

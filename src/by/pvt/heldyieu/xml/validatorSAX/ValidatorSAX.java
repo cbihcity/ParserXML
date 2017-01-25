@@ -1,19 +1,23 @@
 package by.pvt.heldyieu.xml.validatorSAX;
 import java.io.File;
 import java.io.IOException;
+
 import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+
 import org.xml.sax.SAXException;
 
-public class ValidatorSAX {
+import by.pvt.heldyieu.interfaces.Constants;
+
+public class ValidatorSAX implements Constants {
 	public static void main(String[] args) {
-		String filename = "src\\by\\pvt\\heldyieu\\xml\\tariffs.xml";
-		String schemaname = "src\\by\\pvt\\heldyieu\\xml\\tariffs.xsd";
-		String logname = "src\\by\\pvt\\heldyieu\\log\\log.txt";
+		String filename = XML_FILENAME;
+		String schemaname = XSD_FILNAME;
+		String logname = LOG_FILENAME;
 		Schema schema = null;
 		String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
 		SchemaFactory factory = SchemaFactory.newInstance(language);

@@ -10,8 +10,9 @@ import by.pvt.heldyieu.beans.callprices.InitCallPrices;
 import by.pvt.heldyieu.beans.parameters.InitParameters;
 import by.pvt.heldyieu.beans.parameters.Parameters;
 import by.pvt.heldyieu.beans.tariff.Tariff;
+import by.pvt.heldyieu.interfaces.Constants;
 
-public class TariffForCalls {
+public class TariffForCalls implements Constants {
 	
 	private static TariffForCalls tariffForCalls;
 	private ArrayList<Tariff> listOfTariff;
@@ -23,6 +24,12 @@ public class TariffForCalls {
 	public ArrayList<Tariff> getListOfTariff() {
 		return listOfTariff;
 	}
+	
+	public void setListOfTariff(ArrayList<Tariff> listOfTariff) {
+		this.listOfTariff = listOfTariff;
+	}
+
+
 
 	private TariffForCalls(){
 		listOfTariff = createTariff();
@@ -30,8 +37,8 @@ public class TariffForCalls {
 	
 	private ArrayList<Tariff> createTariff() {
 		ArrayList<Tariff> temp = new ArrayList<Tariff>();
-		List<CallPrices> callsPrice = InitCallPrices.init("tariffForCalls");
-		Parameters parameter = InitParameters.init("tariffForCalls");
+		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_CALLS);
+		Parameters parameter = InitParameters.init(TARIFF_FOR_CALLS);
 		TariffForCallsBuilder builder = new TariffForCallsBuilder();
 		builder.buildName("Стандарт");builder.buildOperatorName("МТС");builder.buildPayroll(5.5);
 		builder.buildSmsPrice(0.15);builder.buildFreeMinutes(200);
@@ -53,7 +60,7 @@ public class TariffForCalls {
 	 */
 	@Override
 	public String toString() {
-		return "TariffForCalls [listOfTariff=" + listOfTariff + "]";
+		return "\nТарифы для звонков";
 	}
 	
 }

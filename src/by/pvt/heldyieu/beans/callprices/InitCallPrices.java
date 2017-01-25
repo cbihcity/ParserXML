@@ -9,14 +9,14 @@ public class InitCallPrices {
 		ArrayList<CallPrices> list = new ArrayList<CallPrices>();
 		switch (choice){
 		case "tariffForCalls":
-			list.add(new CallPrices("inside-network", 1.5));
-			list.add(new CallPrices("outside-network", 2.5));
-			list.add(new CallPrices("state-calls", 3.5));
+			list.add(new CallPrices((byte) 1, "inside-network", 1.5));
+			list.add(new CallPrices((byte) 2, "outside-network", 2.5));
+			list.add(new CallPrices((byte) 3, "state-calls", 3.5));
 			break;
 		case "tariffForInternet":
-			list.add(new CallPrices("inside-network", 2.5));
-			list.add(new CallPrices("outside-network", 3.5));
-			list.add(new CallPrices("state-calls", 4.5));
+			list.add(new CallPrices((byte) 1, "inside-network", 2.5));
+			list.add(new CallPrices((byte) 2, "outside-network", 3.5));
+			list.add(new CallPrices((byte) 3, "state-calls", 4.5));
 			break;
 		}
 		return list;
