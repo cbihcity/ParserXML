@@ -259,12 +259,12 @@ public class Tariff implements Comparator<Tariff> {
 	@Override
 	public String toString() {
 		return "Тариф : "
-				+ (name != null ? name + ", " : "")
-				+ (operatorName != null ? "Имя мобильного оператора : " + operatorName + ", ": "")
-				+ "абоненсткая плата : " + payroll + ", "+callPrices+ "стоимость смс : "	+ smsPrice + ", " 
+				+ (name != null ? name + "\n" : "")
+				+ (operatorName != null ? "Имя мобильного оператора : " + operatorName + "\n": "")
+				+ "абоненсткая плата : " + payroll + "\n"+callPrices+ "стоимость смс : "	+ smsPrice + "\n" 
 				+ (freeGygabytes != null ? "количество свободного интернет трафика : " + freeGygabytes
-				+ ", " : "")+ (freeMinutes != null ? "количество бесплатных минут : " + freeMinutes + ", " : "")
-				+ (parameters != null ? "дополнительные параметры : " + parameters : "") + "]";
+				+ "\n" : "")+ (freeMinutes != null ? "количество бесплатных минут : " + freeMinutes + "\n" : "")
+				+ (parameters != null ? "дополнительные параметры :\n" + parameters : "");
 	}
 
 

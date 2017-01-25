@@ -132,7 +132,7 @@ public class Parameters {
 	@Override
 	public String toString() {
 		return "количество любимых номеров : " + favouriteNumber
-				+ ", режим тарификации : " + tariffication
-				+ ", стоимость подписки : " + subscribeCost;
+				+ "\nрежим тарификации : " + tariffication
+				+ "\nстоимость подписки : " + subscribeCost+"\n===============";
 	}
 }

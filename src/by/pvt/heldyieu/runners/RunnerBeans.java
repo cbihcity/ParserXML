@@ -1,8 +1,8 @@
-package by.pvt.heldyieu.beans.runner;
+package by.pvt.heldyieu.runners;
 
 import by.pvt.heldyieu.beans.singletone.Tariffs;
 
-public class Runner {
+public class RunnerBeans {
 	public static void main(String[] args) {
 		Tariffs tariffs = Tariffs.getInstance();
 		tariffs.getTariffForCalls().getListOfTariff().forEach(item->System.out.println(item));

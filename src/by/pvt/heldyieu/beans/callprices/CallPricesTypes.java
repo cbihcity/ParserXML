@@ -41,8 +41,8 @@ public class CallPricesTypes {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		prices.forEach(item->sb.append(item.getName()+" - "+item.getCost()+", "));
-		return "разновидность стоимости звонков : "+ sb;
+		prices.forEach(item->sb.append(item.getName()+" - "+item.getCost()+"\n"));
+		return "разновидность стоимости звонков :\n"+ sb;
 	}
 
 	
