@@ -18,20 +18,41 @@ public class RunnersXMLParsers implements Constants {
 		
 		// makind TariffsDOMBuilder
 		try {
+			//get type of TariffParser
 			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_DOM_PARSER);
+			//Parsing XML
 			tariffBuilder.buildTariffs(XML_FILENAME);
+			//get TariffForCalls instance after parsing
 			tariffForCalls = tariffBuilder.getTariffForCalls();
 			System.out.println(tariffForCalls.toString());
+			//print list tariffs of TariffsForCalls
 			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+			//get TariffForInternet instance after parsing
 			tariffForInternet = tariffBuilder.getTariffForInternet();
 			System.out.println(tariffForInternet.toString());
+			//print list tariffs of TariffForInternet
 			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
 			System.out.println(DELIMITER);
 			System.out.println("Отсортированный список тарифов по абонентской плате :");
+			//print list of tariffs sorted by payroll
 			ManagementOperations.ReportTariffsCompareByPayroll(tariffForCalls, tariffForInternet);
 		} catch (InvalidValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		try {
+			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
+			tariffBuilder.buildTariffs(XML_FILENAME);
+			tariffForCalls = tariffBuilder.getTariffForCalls();
+			System.out.println(tariffForCalls.toString());
+			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+			
+			tariffForInternet = tariffBuilder.getTariffForInternet();
+			System.out.println(tariffForInternet.toString());
+			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		
