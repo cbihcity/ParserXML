@@ -1,6 +1,8 @@
 package by.pvt.heldyieu.beans.parameters;
 
-public class Parameters {
+import by.pvt.heldyieu.interfaces.Constants;
+
+public class Parameters implements Constants {
 	protected double favouriteNumber;
 	protected String tariffication;
 	protected double subscribeCost;
@@ -133,6 +135,6 @@ public class Parameters {
 	public String toString() {
 		return "количество любимых номеров : " + favouriteNumber
 				+ "\nрежим тарификации : " + tariffication
-				+ "\nстоимость подписки : " + subscribeCost+"\n===============";
+				+ "\nстоимость подписки : " + subscribeCost + "\n" +DELIMITER;
 	}
 }

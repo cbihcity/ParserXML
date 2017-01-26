@@ -1,35 +1,26 @@
 package by.pvt.heldyieu.parsers.builders;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.parsers.ParserConfigurationException;
-
-import by.pvt.heldyieu.generated.TariffForCallsType;
-import by.pvt.heldyieu.generated.TariffForInternetType;
+import by.pvt.heldyieu.beans.singletone.TariffForCalls;
+import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 
 public abstract class AbstractTariffsBuilder {
 	
-	    protected TariffForInternetType tariffForInternet;
-	    protected TariffForCallsType tariffForCalls;
+	protected TariffForCalls tariffForCalls;
+	protected TariffForInternet tariffForInternet;
 	
 	public AbstractTariffsBuilder(){
-		tariffForInternet = new TariffForInternetType();
+		tariffForCalls = TariffForCalls.getInstance();
+		tariffForInternet = TariffForInternet.getInstance();
+	}
+
+	public TariffForCalls getTariffForCalls() {
+		return tariffForCalls;
+	}
+
+	public TariffForInternet getTariffForInternet() {
+		return tariffForInternet;
 	}
 	
-	/**
-	 * @param humanEatings
-	 */
-//	public AbstractTariffsBuilder(List<HumanEatings> humanEatings) {
-//		super();
-//		this.humanEatings = humanEatings;
-//	}
-//
-//	public List<HumanEatings> getHumanEatings(){
-//		return humanEatings;
-//		
-//	}
-//	
-//	abstract public List<HumanEatings> buildListHumanEatings(String fileName) throws ParserConfigurationException;
+	abstract public void buildTariffs(String filename);
+	
 }

@@ -7,5 +7,8 @@ public interface Constants {
 	String XML_FILENAME= "src\\by\\pvt\\heldyieu\\xml\\tariffs.xml";
 	String XSD_FILNAME= "src\\by\\pvt\\heldyieu\\xml\\tariffs.xsd";
 	String LOG_FILENAME= "src\\by\\pvt\\heldyieu\\log\\log.txt";
+	String TYPE_SAX_PARSER= "SAX";
+	String TYPE_DOM_PARSER= "DOM";
+	String TYPE_STAX_PARSER= "STAX";
 
 }
