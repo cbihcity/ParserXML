@@ -1,16 +1,13 @@
 package by.pvt.heldyieu.xml.validatorSAX;
 import java.io.File;
 import java.io.IOException;
-
 import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
 import org.xml.sax.SAXException;
-
 import by.pvt.heldyieu.interfaces.Constants;
 
 public class ValidatorSAX implements Constants {
@@ -29,7 +26,7 @@ public class ValidatorSAX implements Constants {
 			// создание объекта-парсера
 			SAXParser parser = spf.newSAXParser();
 			// установка обработчика ошибок и запуск
-			parser.parse(filename, new StudentErrorHandler(logname));
+			parser.parse(filename, new TariffErrorHandler(logname));
 			System.out.println(filename + " is valid");
 		} catch (ParserConfigurationException e) {
 			System.err.println(filename + " config error: " + e.getMessage());

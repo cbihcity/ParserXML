@@ -25,12 +25,13 @@ public class TariffsDOMBuilder extends AbstractTariffsBuilder implements Constan
 			docBuilder = factory.newDocumentBuilder();
 		} 
 		catch(ParserConfigurationException e){
-			System.err.println("Ошибка конфигурации парсера :" + e);
+			System.err.println(CONFIGURATION_ERROR + e);
 		}
 	}
 
 	public void buildTariffs(String filename){
 		try {
+			System.out.println();
 			Document doc = docBuilder.parse(filename);
 			Element root = doc.getDocumentElement();
 			System.out.println("Root element : "+root.getNodeName());
@@ -41,11 +42,11 @@ public class TariffsDOMBuilder extends AbstractTariffsBuilder implements Constan
 			tariffForCalls.setListOfTariff(OperationsDOMParsers.buildTariffsParser(callsList, TARIFF_FOR_CALLS));
 		}
 			catch (SAXException e) {
-				System.err.println("Проблема при парсере документа "+e);
-				logger.error("Проблема при парсере документа ", e);
+				System.err.println(SAX_ERROR + e);
+				logger.error(SAX_ERROR, e);
 			} catch (IOException e) {
-				System.err.println("Проблема с доступа ресурса "+filename);
-				logger.error("Проблема с доступа ресурса "+filename, e);
+				System.err.println(IO_ERROR + filename);
+				logger.error(IO_ERROR + filename, e);
 			}
 	}
 }

@@ -6,9 +6,9 @@ import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
 
-public class StudentErrorHandler extends DefaultHandler {
-	private Logger logger = Logger.getLogger(StudentErrorHandler.class.getName());
-	public StudentErrorHandler(String log) throws IOException {
+public class TariffErrorHandler extends DefaultHandler {
+	private Logger logger = Logger.getLogger(TariffErrorHandler.class.getName());
+	public TariffErrorHandler(String log) throws IOException {
 	// установка файла и формата вывода ошибок
 	logger.addAppender(new FileAppender(new SimpleLayout(), log));
 	}

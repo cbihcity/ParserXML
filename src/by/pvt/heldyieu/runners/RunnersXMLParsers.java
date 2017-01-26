@@ -1,5 +1,7 @@
 package by.pvt.heldyieu.runners;
 
+import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.beans.singletone.TariffForCalls;
 import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 import by.pvt.heldyieu.exceptions.InvalidValueException;
@@ -9,53 +11,55 @@ import by.pvt.heldyieu.parsers.builders.AbstractTariffsBuilder;
 import by.pvt.heldyieu.parsers.factory.TariffsParserBuilderFactory;
 
 public class RunnersXMLParsers implements Constants {
+	static Logger logger = Logger.getLogger(RunnersXMLParsers.class.getName());
+
 	public static void main(String[] args) {
-		TariffForCalls tariffForCalls; 
-		TariffForInternet tariffForInternet;
+		TariffForCalls tariffForCalls = null;
+		TariffForInternet tariffForInternet = null;
 		AbstractTariffsBuilder tariffBuilder;
 		TariffsParserBuilderFactory builderFactory = new TariffsParserBuilderFactory();
-		
-		
-		// makind TariffsDOMBuilder
+
+		// making TariffsDOMBuilder
+
+		// get type of TariffParser
 		try {
-			//get type of TariffParser
 			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_DOM_PARSER);
-			//Parsing XML
+			// Parsing XML
+			System.out.println(START_PARSE_DOMBUILDER);
 			tariffBuilder.buildTariffs(XML_FILENAME);
-			//get TariffForCalls instance after parsing
+			// get TariffForCalls instance after parsing
 			tariffForCalls = tariffBuilder.getTariffForCalls();
 			System.out.println(tariffForCalls.toString());
-			//print list tariffs of TariffsForCalls
-			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
-			//get TariffForInternet instance after parsing
+			// print list tariffs of TariffsForCalls
+			tariffForCalls.getListOfTariff().forEach(item -> System.out.println(item));
+			// get TariffForInternet instance after parsing
 			tariffForInternet = tariffBuilder.getTariffForInternet();
 			System.out.println(tariffForInternet.toString());
-			//print list tariffs of TariffForInternet
-			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
+			// print list tariffs of TariffForInternet
+			tariffForInternet.getListOfTariff().forEach(item -> System.out.println(item));
 			System.out.println(DELIMITER);
-			System.out.println("Отсортированный список тарифов по абонентской плате :");
-			//print list of tariffs sorted by payroll
-			ManagementOperations.ReportTariffsCompareByPayroll(tariffForCalls, tariffForInternet);
+			System.out.println(MESSAGE_SORT_LIST);
+			// print list of tariffs sorted by payroll
+			ManagementOperations.ReportTariffsCompareByPayroll(tariffForCalls,tariffForInternet);
+
 		} catch (InvalidValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Invalid value exception");
 		}
 		
-		try {
-			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
-			tariffBuilder.buildTariffs(XML_FILENAME);
-			tariffForCalls = tariffBuilder.getTariffForCalls();
-			System.out.println(tariffForCalls.toString());
-			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
-			
-			tariffForInternet = tariffBuilder.getTariffForInternet();
-			System.out.println(tariffForInternet.toString());
-			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		
+//		try {
+//			// making TariffsSAXBuilder
+//			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
+//			tariffBuilder.buildTariffs(XML_FILENAME);
+//			tariffForCalls = tariffBuilder.getTariffForCalls();
+//			System.out.println(tariffForCalls.toString());
+//			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+//			
+//			tariffForInternet = tariffBuilder.getTariffForInternet();
+//			System.out.println(tariffForInternet.toString());
+//			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
 	}
 
 	
