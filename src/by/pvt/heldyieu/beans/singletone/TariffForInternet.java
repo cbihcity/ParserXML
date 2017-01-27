@@ -15,18 +15,18 @@ import by.pvt.heldyieu.interfaces.Constants;
 public class TariffForInternet implements Constants {
 
 	private static TariffForInternet tariffForInternet;
-	private ArrayList<Tariff> listOfTariff;
+	private List<Tariff> listOfTariff;
 
 	
 	/**
 	 * @return the listOfTariff
 	 */
-	public ArrayList<Tariff> getListOfTariff() {
+	public List<Tariff> getListOfTariff() {
 		return listOfTariff;
 	}
 	
 	
-	public void setListOfTariff(ArrayList<Tariff> listOfTariff) {
+	public void setListOfTariff(List<Tariff> listOfTariff) {
 		this.listOfTariff = listOfTariff;
 	}
 

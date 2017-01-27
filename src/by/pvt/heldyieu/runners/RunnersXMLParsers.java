@@ -1,7 +1,6 @@
 package by.pvt.heldyieu.runners;
 
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.beans.singletone.TariffForCalls;
 import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 import by.pvt.heldyieu.exceptions.InvalidValueException;
@@ -19,6 +18,7 @@ public class RunnersXMLParsers implements Constants {
 		AbstractTariffsBuilder tariffBuilder;
 		TariffsParserBuilderFactory builderFactory = new TariffsParserBuilderFactory();
 
+		
 		// making TariffsDOMBuilder
 
 		// get type of TariffParser
@@ -37,30 +37,32 @@ public class RunnersXMLParsers implements Constants {
 			System.out.println(tariffForInternet.toString());
 			// print list tariffs of TariffForInternet
 			tariffForInternet.getListOfTariff().forEach(item -> System.out.println(item));
-			System.out.println(DELIMITER);
-			System.out.println(MESSAGE_SORT_LIST);
+			System.out.println(MESSAGE_SORT_LIST.toUpperCase());
 			// print list of tariffs sorted by payroll
 			ManagementOperations.ReportTariffsCompareByPayroll(tariffForCalls,tariffForInternet);
+			System.out.println(END_DOM_PARSER);
 
 		} catch (InvalidValueException e) {
 			logger.error("Invalid value exception");
 		}
 		
-//		try {
-//			// making TariffsSAXBuilder
-//			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
-//			tariffBuilder.buildTariffs(XML_FILENAME);
-//			tariffForCalls = tariffBuilder.getTariffForCalls();
-//			System.out.println(tariffForCalls.toString());
-//			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
-//			
-//			tariffForInternet = tariffBuilder.getTariffForInternet();
-//			System.out.println(tariffForInternet.toString());
-//			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
+		try {
+			// making TariffsSAXBuilder
+			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
+			System.out.println(START_PARSE_SAXBUILDER);
+			tariffBuilder.buildTariffs(XML_FILENAME);
+			tariffForCalls = tariffBuilder.getTariffForCalls();
+			System.out.println(tariffForCalls.toString());
+			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+			tariffForInternet = tariffBuilder.getTariffForInternet();
+			System.out.println(tariffForInternet.toString());
+			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
+			System.out.println(MESSAGE_SORT_LIST.toUpperCase());
+			// print list of tariffs sorted by payroll
+			ManagementOperations.ReportTariffsCompareByPayroll(tariffForCalls,tariffForInternet);
+			System.out.println(END_SAX_PARSER);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
-
-	
 }
