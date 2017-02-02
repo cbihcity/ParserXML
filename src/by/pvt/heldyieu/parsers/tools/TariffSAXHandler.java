@@ -171,7 +171,4 @@ public class TariffSAXHandler extends DefaultHandler implements Constants{
 		System.err.println("line = " + ex.getLineNumber() + "  col = "
 				+ ex.getColumnNumber());
 	}
-
-	
-	
 }

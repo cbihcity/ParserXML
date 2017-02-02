@@ -1,6 +1,3 @@
-/**
- * 
- */
 package by.pvt.heldyieu.parsers.builders;
 
 import java.io.File;
@@ -17,9 +14,6 @@ import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 import by.pvt.heldyieu.interfaces.Constants;
 import by.pvt.heldyieu.parsers.tools.TariffSAXHandler;
 
-/**
- * 
- */
 public class TariffsSAXBuilder extends AbstractTariffsBuilder implements Constants {
 	static Logger logger = Logger.getLogger(TariffsSAXBuilder.class.getName());
 

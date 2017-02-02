@@ -12,38 +12,45 @@ public class TariffForCallsBuilder extends AbstractTariffBuilder{
 	}
 	
 	@Override
-	public void buildName(String name) {
+	public TariffForCallsBuilder buildName(String name) {
 		tariff.setName(name);
+		return this;
 	}
 
 	@Override
-	public void buildOperatorName(String operatorName) {
+	public TariffForCallsBuilder buildOperatorName(String operatorName) {
 		tariff.setOperatorName(operatorName);
+		return this;
 	}
 
 	@Override
-	public void buildPayroll(double payroll) {
+	public TariffForCallsBuilder buildPayroll(double payroll) {
 		tariff.setPayroll(payroll);
+		return this;
 	}
 
 
 	@Override
-	public void buildSmsPrice(double smsPrice) {
+	public TariffForCallsBuilder buildSmsPrice(double smsPrice) {
 		tariff.setSmsPrice(smsPrice);
+		return this;
 	}
 
 	@Override
-	public void buildParameters(Parameters parameters) {
+	public TariffForCallsBuilder buildParameters(Parameters parameters) {
 		tariff.setParameters(parameters);
+		return this;
 	}
 	
-	public void buildFreeMinutes(int freeMinutes) {
+	public TariffForCallsBuilder buildFreeMinutes(int freeMinutes) {
 		tariff.setFreeMinutes(freeMinutes);
+		return this;
 	}
 
 	@Override
-	public void buildListOfPrices(CallPricesTypes callPrices) {
+	public TariffForCallsBuilder buildListOfPrices(CallPricesTypes callPrices) {
 		tariff.setCallPrices(callPrices);
+		return this;
 		
 	}
 

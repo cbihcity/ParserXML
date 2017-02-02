@@ -6,9 +6,7 @@ public final class Tariffs {
 	
 	private TariffForInternet tariffForInternet;
 	private TariffForCalls tariffForCalls;
-	private static Tariffs tariffs;
-	
-	
+	private volatile static Tariffs INSTANCE;
 
 	/**
 	 * @return the tariffForInternet
@@ -30,10 +28,14 @@ public final class Tariffs {
 	 }
 	
 	public static Tariffs getInstance(){
-		if (tariffs == null) {
-			tariffs = new Tariffs();
-		} 
-		return tariffs;
+		if (INSTANCE == null) {
+			synchronized (Tariffs.class) {
+				if (INSTANCE == null) {
+					INSTANCE = new Tariffs();
+				}
+			}
+		}
+		return INSTANCE;
 	}
 
 	/* (non-Javadoc)

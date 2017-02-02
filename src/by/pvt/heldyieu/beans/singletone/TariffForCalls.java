@@ -2,7 +2,6 @@ package by.pvt.heldyieu.beans.singletone;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import by.pvt.heldyieu.beans.builders.TariffForCallsBuilder;
 import by.pvt.heldyieu.beans.callprices.CallPrices;
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
@@ -14,7 +13,7 @@ import by.pvt.heldyieu.interfaces.Constants;
 
 public class TariffForCalls implements Constants {
 	
-	private static TariffForCalls tariffForCalls;
+	private volatile static TariffForCalls INSTANCE;
 	private List<Tariff> listOfTariff;
 
 	
@@ -22,37 +21,39 @@ public class TariffForCalls implements Constants {
 	 * @return the listOfTariff
 	 */
 	public List<Tariff> getListOfTariff() {
-		return listOfTariff;
+		return new ArrayList<Tariff>(listOfTariff);
 	}
 	
 	public void setListOfTariff(List<Tariff> listOfTariff) {
 		this.listOfTariff = listOfTariff;
 	}
 
-
-
 	private TariffForCalls(){
 		listOfTariff = createTariff();
 	}
 	
-	private ArrayList<Tariff> createTariff() {
+	private List<Tariff> createTariff() {
 		ArrayList<Tariff> temp = new ArrayList<Tariff>();
 		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_CALLS);
 		Parameters parameter = InitParameters.init(TARIFF_FOR_CALLS);
 		TariffForCallsBuilder builder = new TariffForCallsBuilder();
-		builder.buildName("Стандарт");builder.buildOperatorName("МТС");builder.buildPayroll(5.5);
-		builder.buildSmsPrice(0.15);builder.buildFreeMinutes(200);
-		builder.buildListOfPrices(new CallPricesTypes(callsPrice));
-		builder.buildParameters(parameter);
+		builder.buildName("Стандарт").buildOperatorName("МТС")
+				.buildPayroll(5.5).buildSmsPrice(0.15).buildFreeMinutes(200)
+				.buildListOfPrices(new CallPricesTypes(callsPrice))
+				.buildParameters(parameter);
 		temp.add(builder.getInstance());
 		return temp;
 	}
 
 	public static TariffForCalls getInstance() {
-		if (tariffForCalls == null) {
-			tariffForCalls = new TariffForCalls();
+		if (INSTANCE == null) {
+			synchronized (TariffForCalls.class) {
+				if (INSTANCE == null) {
+					INSTANCE = new TariffForCalls();
+				}
+			}
 		}
-		return tariffForCalls;
+		return INSTANCE;
 	}
 
 	/* (non-Javadoc)

@@ -12,38 +12,44 @@ public class TariffForInernetBuilder extends AbstractTariffBuilder {
 	}
 	
 	@Override
-	public void buildName(String name) {
+	public TariffForInernetBuilder buildName(String name) {
 		tariff.setName(name);
+		return this;
 	}
 
 	@Override
-	public void buildOperatorName(String operatorName) {
+	public TariffForInernetBuilder buildOperatorName(String operatorName) {
 		tariff.setOperatorName(operatorName);
+		return this;
 	}
 
 	@Override
-	public void buildPayroll(double payroll) {
+	public TariffForInernetBuilder buildPayroll(double payroll) {
 		tariff.setPayroll(payroll);
+		return this;
 	}
 
-
 	@Override
-	public void buildSmsPrice(double smsPrice) {
+	public TariffForInernetBuilder buildSmsPrice(double smsPrice) {
 		tariff.setSmsPrice(smsPrice);
+		return this;
 	}
 
 	@Override
-	public void buildParameters(Parameters parameters) {
+	public TariffForInernetBuilder buildParameters(Parameters parameters) {
 		tariff.setParameters(parameters);
+		return this;
 	}
 	
-	public void buildFreeGygabytes(double freeGygabytes) {
+	public TariffForInernetBuilder buildFreeGygabytes(double freeGygabytes) {
 		tariff.setFreeGygabytes(freeGygabytes);
+		return this;
 	}
 
 	@Override
-	public void buildListOfPrices(CallPricesTypes callPrices) {
+	public TariffForInernetBuilder buildListOfPrices(CallPricesTypes callPrices) {
 		tariff.setCallPrices(callPrices);
+		return this;
 		
 	}
 	
