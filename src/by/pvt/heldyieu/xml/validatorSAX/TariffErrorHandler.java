@@ -9,20 +9,24 @@ import org.apache.log4j.SimpleLayout;
 public class TariffErrorHandler extends DefaultHandler {
 	private Logger logger = Logger.getLogger(TariffErrorHandler.class.getName());
 	public TariffErrorHandler(String log) throws IOException {
-	// установка файла и формата вывода ошибок
-	logger.addAppender(new FileAppender(new SimpleLayout(), log));
+		// СѓСЃС‚Р°РЅРѕРІРєР° С„Р°Р№Р»Р° Рё С„РѕСЂРјР°С‚Р° РІС‹РІРѕРґР° РѕС€РёР±РѕРє
+		logger.addAppender(new FileAppender(new SimpleLayout(), log));
 	}
+
 	public void warning(SAXParseException e) {
-	logger.warn(getLineAddress(e) + "-" + e.getMessage());
+		logger.warn(getLineAddress(e) + "-" + e.getMessage());
 	}
+
 	public void error(SAXParseException e) {
-	logger.error(getLineAddress(e) + " - " + e.getMessage());
+		logger.error(getLineAddress(e) + " - " + e.getMessage());
 	}
+
 	public void fatalError(SAXParseException e) {
-	logger.fatal(getLineAddress(e) + " - " + e.getMessage());
+		logger.fatal(getLineAddress(e) + " - " + e.getMessage());
 	}
+
 	private String getLineAddress(SAXParseException e) {
-	// определение строки и столбца ошибки
-	return e.getLineNumber() + " : " + e.getColumnNumber();
+		// РѕРїСЂРµРґРµР»РµРЅРёРµ СЃС‚СЂРѕРєРё Рё СЃС‚РѕР»Р±С†Р° РѕС€РёР±РєРё
+		return e.getLineNumber() + " : " + e.getColumnNumber();
 	}
 }

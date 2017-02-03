@@ -1,4 +1,5 @@
 package by.pvt.heldyieu.xml.validatorSAX;
+
 import java.io.File;
 import java.io.IOException;
 import javax.xml.XMLConstants;
@@ -7,27 +8,33 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import by.pvt.heldyieu.interfaces.Constants;
 
 public class ValidatorSAX implements Constants {
-	public static void main(String[] args) {
+	private static final Logger logger = Logger.getLogger(ValidatorSAX.class.getName());
+	
+	public static void validateXMLFile() {
 		String filename = XML_FILENAME;
 		String schemaname = XSD_FILNAME;
 		String logname = LOG_FILENAME;
 		Schema schema = null;
 		String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
 		SchemaFactory factory = SchemaFactory.newInstance(language);
+		logger.info("РџСЂРѕРІРµСЂРєР° xml С„Р°Р№Р»Р° РЅР° РІР°Р»РёРґРЅРѕСЃС‚СЊ");
 		try {
-			// установка проверки с использованием XSD
+			logger.info("СѓСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРІРµСЂРєРё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј XSD");
 			schema = factory.newSchema(new File(schemaname));
 			SAXParserFactory spf = SAXParserFactory.newInstance();
+			spf.setNamespaceAware(true);
 			spf.setSchema(schema);
-			// создание объекта-парсера
+			logger.info("СЃРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°-РїР°СЂСЃРµСЂР°"); 
 			SAXParser parser = spf.newSAXParser();
-			// установка обработчика ошибок и запуск
+			logger.info("СѓСЃС‚Р°РЅРѕРІРєР° РѕР±СЂР°Р±РѕС‚С‡РёРєР° РѕС€РёР±РѕРє Рё Р·Р°РїСѓСЃРє РІР°Р»РёРґР°С‚РѕСЂР°");
 			parser.parse(filename, new TariffErrorHandler(logname));
 			System.out.println(filename + " is valid");
+			System.out.println(DELIMITER);
 		} catch (ParserConfigurationException e) {
 			System.err.println(filename + " config error: " + e.getMessage());
 		} catch (SAXException e) {

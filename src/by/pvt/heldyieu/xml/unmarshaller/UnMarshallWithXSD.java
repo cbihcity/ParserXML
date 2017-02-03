@@ -9,33 +9,41 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import by.pvt.heldyieu.generated.MobileProviderType;
 import by.pvt.heldyieu.generated.ObjectFactory;
+import by.pvt.heldyieu.interfaces.Constants;
 
-public class UnMarshallWithXSD {
-	public static void main(String[ ] args) {
+public class UnMarshallWithXSD implements Constants {
+	private static final Logger logger = Logger
+			.getLogger(UnMarshallWithXSD.class.getName());
+
+	public static void unmarshallWithXSD() {
 		JAXBContext jc = null;
 		try {
-		jc = JAXBContext.newInstance(ObjectFactory.class);
-		Unmarshaller um = jc.createUnmarshaller();
-		String schemaName = "src\\by\\pvt\\heldyieu\\xml\\tariffs.xsd";
-		SchemaFactory factory =
-		SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		File schemaLocation = new File(schemaName);
-		// создание схемы и перадача ее демарашаллизатору
-		Schema schema = factory.newSchema(schemaLocation);
-		um.setSchema(schema);
-		@SuppressWarnings("unchecked")
-		JAXBElement<MobileProviderType> unmarshalledObject = (JAXBElement<MobileProviderType>) 
-				um.unmarshal(new File("src\\by\\pvt\\heldyieu\\xml\\tariffs.xml"));
-		unmarshalledObject.getValue().getTariffs().getTariffForCalls().getTariff().forEach(item->System.out.println(item.toString()));
-		unmarshalledObject.getValue().getTariffs().getTariffForInternet().getTariff().forEach(item->System.out.println(item.toString()));
+			jc = JAXBContext.newInstance(ObjectFactory.class);
+			Unmarshaller um = jc.createUnmarshaller();
+			String schemaName = XSD_FILNAME;
+			SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			File schemaLocation = new File(schemaName);
+			Schema schema = factory.newSchema(schemaLocation);
+			um.setSchema(schema);
+			@SuppressWarnings("unchecked")
+			JAXBElement<MobileProviderType> unmarshalledObject = 
+			(JAXBElement<MobileProviderType>) um.unmarshal(new File(XML_FILENAME));
+			unmarshalledObject.getValue().getTariffs().getTariffForCalls()
+					.getTariff()
+					.forEach(item -> System.out.println(item.toString()));
+			unmarshalledObject.getValue().getTariffs().getTariffForInternet()
+					.getTariff()
+					.forEach(item -> System.out.println(item.toString()));
+			System.out.println(DELIMITER);
 		} catch (JAXBException e) {
-		e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (SAXException e) {
-		e.printStackTrace();
+			logger.error(e.getMessage());
 		}
-		}
+	}
 }

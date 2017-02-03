@@ -37,7 +37,7 @@ public class TariffForInternet implements Constants {
 		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_INTERNET);
 		Parameters parameter = InitParameters.init(TARIFF_FOR_INTERNET);
 		TariffForInernetBuilder builder = new TariffForInernetBuilder();
-		builder.buildName("Смарт 1").buildOperatorName("Велком")
+		builder.buildName("РЎРјР°СЂС‚ 1").buildOperatorName("Р’РµР»РєРѕРј")
 				.buildPayroll(3.5).buildSmsPrice(0.15).buildFreeGygabytes(2.0)
 				.buildListOfPrices(new CallPricesTypes(callsPrice))
 				.buildParameters(parameter);
@@ -61,7 +61,7 @@ public class TariffForInternet implements Constants {
 	 */
 	@Override
 	public String toString() {
-		return "\nТарифы для интернета";
+		return "\nРўР°СЂРёС„С‹ РґР»СЏ РёРЅС‚РµСЂРЅРµС‚Р°";
 	}
 	
 

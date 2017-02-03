@@ -133,8 +133,8 @@ public class Parameters implements Constants {
 	 */
 	@Override
 	public String toString() {
-		return "количество любимых номеров : " + favouriteNumber
-				+ "\nрежим тарификации : " + tariffication
-				+ "\nстоимость подписки : " + subscribeCost + "\n" +DELIMITER;
+		return "РєРѕР»РёС‡РµСЃС‚РІРѕ Р»СЋР±РёРјС‹С… РЅРѕРјРµСЂРѕРІ : " + favouriteNumber
+				+ "\nСЂРµР¶РёРј С‚Р°СЂРёС„РёРєР°С†РёРё : " + tariffication
+				+ "\nСЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕРґРїРёСЃРєРё : " + subscribeCost + "\n" +DELIMITER;
 	}
 }

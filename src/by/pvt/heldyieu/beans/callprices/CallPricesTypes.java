@@ -42,7 +42,7 @@ public class CallPricesTypes {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		prices.forEach(item->sb.append(item.getName()+" - "+item.getCost()+"\n"));
-		return "разновидность стоимости звонков :\n"+ sb;
+		return "СЂР°Р·РЅРѕРІРёРґРЅРѕСЃС‚СЊ СЃС‚РѕРёРјРѕСЃС‚Рё Р·РІРѕРЅРєРѕРІ :\n"+ sb;
 	}
 
 	

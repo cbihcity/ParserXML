@@ -1,6 +1,5 @@
 package by.pvt.heldyieu.interfaces;
 
-
 public interface Constants {
 	String DELIMITER= "====================";
 	String TARIFF_FOR_INTERNET= "tariffForInternet";
@@ -13,11 +12,13 @@ public interface Constants {
 	String TYPE_STAX_PARSER= "STAX";
 	String START_PARSE_DOMBUILDER= "Starting to parse xml with DOMParser....";
 	String START_PARSE_SAXBUILDER= "Starting to parse xml with SAXParser....";
-	String SAX_ERROR= "Проблема при парсере документа ";
-	String IO_ERROR= "Проблема с доступом к ресурсу ";
-	String CONFIGURATION_ERROR= "Ошибка конфигурации парсера :";
-	String MESSAGE_SORT_LIST= "Отсортированный список тарифов по абонентской плате :";
+	String SAX_ERROR= "РџСЂРѕР±Р»РµРјР° РїСЂРё РїР°СЂСЃРµСЂРµ РґРѕРєСѓРјРµРЅС‚Р° ";
+	String IO_ERROR= "РџСЂРѕР±Р»РµРјР° СЃ РґРѕСЃС‚СѓРїРѕРј Рє СЂРµСЃСѓСЂСЃСѓ ";
+	String CONFIGURATION_ERROR= "РћС€РёР±РєР° РєРѕРЅС„РёРіСѓСЂР°С†РёРё РїР°СЂСЃРµСЂР° :";
+	String MESSAGE_SORT_LIST= "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє С‚Р°СЂРёС„РѕРІ РїРѕ Р°Р±РѕРЅРµРЅС‚СЃРєРѕР№ РїР»Р°С‚Рµ :";
 	String END_DOM_PARSER= "PARSING XML WITH DOMPARSER IS FINISHED\n"+DELIMITER;
 	String END_SAX_PARSER= "PARSING XML WITH SAXPARSER IS FINISHED\n"+DELIMITER;
-
+	String INCORRECT_INPUT_VALUE_FOR_SCANNER= "РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р° РјРµРЅСЋ. РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ";
+	String MYSMATCH_TYPE_INPUT_VALUE_FOR_SCANNER= "РќРµРІРµСЂРЅС‹Р№ С‚РёРї РІРІС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…. РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ";
+	String ERROR_CLOSING_SCANNER = "РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРѕРїС‹С‚РєРµ Р·Р°РєСЂС‹С‚СЊ РїРѕС‚РѕРє. ";
 }

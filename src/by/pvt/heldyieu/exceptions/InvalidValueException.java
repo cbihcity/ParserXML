@@ -8,6 +8,6 @@ private static final long serialVersionUID = 4081837278749194746L;
 	}
 
 	public InvalidValueException(final String message, String value) {
-		super(message+"Некорректный параметр : " + value);
+		super(message+"РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РїР°СЂР°РјРµС‚СЂ : " + value);
 	}
 }

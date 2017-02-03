@@ -258,13 +258,13 @@ public class Tariff implements Comparator<Tariff> {
 	 */
 	@Override
 	public String toString() {
-		return "Тариф : "
+		return "РўР°СЂРёС„ : "
 				+ (name != null ? name + "\n" : "")
-				+ (operatorName != null ? "Имя мобильного оператора : " + operatorName + "\n": "")
-				+ "абоненсткая плата : " + payroll + "\n"+callPrices+ "стоимость смс : "	+ smsPrice + "\n" 
-				+ (freeGygabytes != null ? "количество свободного интернет трафика : " + freeGygabytes
-				+ "\n" : "")+ (freeMinutes != null ? "количество бесплатных минут : " + freeMinutes + "\n" : "")
-				+ (parameters != null ? "дополнительные параметры :\n" + parameters : "");
+				+ (operatorName != null ? "РРјСЏ РјРѕР±РёР»СЊРЅРѕРіРѕ РѕРїРµСЂР°С‚РѕСЂР° : " + operatorName + "\n": "")
+				+ "Р°Р±РѕРЅРµРЅСЃС‚РєР°СЏ РїР»Р°С‚Р° : " + payroll + "\n"+callPrices+ "СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРјСЃ : "	+ smsPrice + "\n" 
+				+ (freeGygabytes != null ? "РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІРѕР±РѕРґРЅРѕРіРѕ РёРЅС‚РµСЂРЅРµС‚ С‚СЂР°С„РёРєР° : " + freeGygabytes
+				+ "\n" : "")+ (freeMinutes != null ? "РєРѕР»РёС‡РµСЃС‚РІРѕ Р±РµСЃРїР»Р°С‚РЅС‹С… РјРёРЅСѓС‚ : " + freeMinutes + "\n" : "")
+				+ (parameters != null ? "РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ :\n" + parameters : "");
 	}
 
 

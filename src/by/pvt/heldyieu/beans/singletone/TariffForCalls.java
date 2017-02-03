@@ -37,7 +37,7 @@ public class TariffForCalls implements Constants {
 		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_CALLS);
 		Parameters parameter = InitParameters.init(TARIFF_FOR_CALLS);
 		TariffForCallsBuilder builder = new TariffForCallsBuilder();
-		builder.buildName("Стандарт").buildOperatorName("МТС")
+		builder.buildName("РЎС‚Р°РЅРґР°СЂС‚").buildOperatorName("РњРўРЎ")
 				.buildPayroll(5.5).buildSmsPrice(0.15).buildFreeMinutes(200)
 				.buildListOfPrices(new CallPricesTypes(callsPrice))
 				.buildParameters(parameter);
@@ -61,7 +61,7 @@ public class TariffForCalls implements Constants {
 	 */
 	@Override
 	public String toString() {
-		return "\nТарифы для звонков";
+		return "\nРўР°СЂРёС„С‹ РґР»СЏ Р·РІРѕРЅРєРѕРІ";
 	}
 	
 }
