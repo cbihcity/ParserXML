@@ -39,7 +39,7 @@ public class OperationsDOMParsers implements Constants {
 				break;
 			}
 			List<CallPrices> callsPrice = new ArrayList<CallPrices>();
-			NodeList callsPricesList = internet.getElementsByTagName("call-prices");
+			NodeList callsPricesList = tariffElement.getElementsByTagName("call-prices");
 			Element callsPricesListItem = (Element) callsPricesList.item(0);
 			NodeList callsPriceitems = callsPricesListItem.getElementsByTagName("prices");
 			for (int j = 0; j < callsPriceitems.getLength(); j++) {
@@ -51,7 +51,7 @@ public class OperationsDOMParsers implements Constants {
 				callsPrice.add(call);
 			}
 			tariff.setCallPrices(new CallPricesTypes(callsPrice));
-			NodeList parametersList = internet.getElementsByTagName("parameters");
+			NodeList parametersList = tariffElement.getElementsByTagName("parameters");
 			Element parametersItem = (Element) parametersList.item(0);
 			Parameters parameter = new Parameters();
 			parameter.setFavouriteNumber(Double.parseDouble(getElementTextContent(parametersItem, "favourite-number")));

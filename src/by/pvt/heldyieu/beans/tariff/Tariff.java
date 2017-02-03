@@ -16,8 +16,8 @@ public class Tariff implements Comparator<Tariff> {
 	    protected double payroll;
 	    protected CallPricesTypes callPrices;
 	    protected double smsPrice;
-	    protected Double freeGygabytes;
-	    protected Integer freeMinutes;
+	    protected double freeGygabytes;
+	    protected int freeMinutes;
 	    protected Parameters parameters;
     
 	public Tariff() {
@@ -35,13 +35,13 @@ public class Tariff implements Comparator<Tariff> {
 	 * @param parameters
 	 */
 	public Tariff(String name, String operatorName, double payroll,
-			CallPricesTypes listOfPrices, double smsPrice, double freeGygabytes,
+			CallPricesTypes callPrices, double smsPrice, double freeGygabytes,
 			int freeMinutes, Parameters parameters) {
 		super();
 		this.name = name;
 		this.operatorName = operatorName;
 		this.payroll = payroll;
-		this.callPrices = listOfPrices;
+		this.callPrices = callPrices;
 		this.smsPrice = smsPrice;
 		this.freeGygabytes = freeGygabytes;
 		this.freeMinutes = freeMinutes;
@@ -262,8 +262,8 @@ public class Tariff implements Comparator<Tariff> {
 				+ (name != null ? name + "\n" : "")
 				+ (operatorName != null ? "Имя мобильного оператора : " + operatorName + "\n": "")
 				+ "абоненсткая плата : " + payroll + "\n"+callPrices+ "стоимость смс : "	+ smsPrice + "\n" 
-				+ (freeGygabytes != null ? "количество свободного интернет трафика : " + freeGygabytes
-				+ "\n" : "")+ (freeMinutes != null ? "количество бесплатных минут : " + freeMinutes + "\n" : "")
+				+ (freeGygabytes != 0 ? "количество свободного интернет трафика : " + freeGygabytes
+				+ "\n" : "")+ (freeMinutes != 0 ? "количество бесплатных минут : " + freeMinutes + "\n" : "")
 				+ (parameters != null ? "дополнительные параметры :\n" + parameters : "");
 	}
 

@@ -2,13 +2,14 @@ package by.pvt.heldyieu.beans.singletone;
 
 import java.util.ArrayList;
 import java.util.List;
-import by.pvt.heldyieu.beans.builders.TariffForInernetBuilder;
+
 import by.pvt.heldyieu.beans.callprices.CallPrices;
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.callprices.InitCallPrices;
 import by.pvt.heldyieu.beans.parameters.InitParameters;
 import by.pvt.heldyieu.beans.parameters.Parameters;
 import by.pvt.heldyieu.beans.tariff.Tariff;
+import by.pvt.heldyieu.builders.TariffForInernetBuilder;
 import by.pvt.heldyieu.interfaces.Constants;
 
 public class TariffForInternet implements Constants {
@@ -37,11 +38,12 @@ public class TariffForInternet implements Constants {
 		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_INTERNET);
 		Parameters parameter = InitParameters.init(TARIFF_FOR_INTERNET);
 		TariffForInernetBuilder builder = new TariffForInernetBuilder();
-		builder.buildName("Смарт 1").buildOperatorName("Велком")
-				.buildPayroll(3.5).buildSmsPrice(0.15).buildFreeGygabytes(2.0)
-				.buildListOfPrices(new CallPricesTypes(callsPrice))
-				.buildParameters(parameter);
-		temp.add(builder.getInstance());
+		builder.freeGygabytes(2.0).name("Смарт 1").operatorName("Велком")
+				.payroll(3.5).smsPrice(0.15)
+				.listOfPrices(new CallPricesTypes(callsPrice))
+				.parameters(parameter);
+		Tariff tariff = builder.getTariff();
+		temp.add(tariff);
 		return temp;
 	}
 

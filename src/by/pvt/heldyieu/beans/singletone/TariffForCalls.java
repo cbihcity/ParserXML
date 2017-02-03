@@ -2,20 +2,20 @@ package by.pvt.heldyieu.beans.singletone;
 
 import java.util.ArrayList;
 import java.util.List;
-import by.pvt.heldyieu.beans.builders.TariffForCallsBuilder;
+
 import by.pvt.heldyieu.beans.callprices.CallPrices;
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.callprices.InitCallPrices;
 import by.pvt.heldyieu.beans.parameters.InitParameters;
 import by.pvt.heldyieu.beans.parameters.Parameters;
 import by.pvt.heldyieu.beans.tariff.Tariff;
+import by.pvt.heldyieu.builders.TariffForCallsBuilder;
 import by.pvt.heldyieu.interfaces.Constants;
 
 public class TariffForCalls implements Constants {
 	
 	private volatile static TariffForCalls INSTANCE;
 	private List<Tariff> listOfTariff;
-
 	
 	/**
 	 * @return the listOfTariff
@@ -37,11 +37,11 @@ public class TariffForCalls implements Constants {
 		List<CallPrices> callsPrice = InitCallPrices.init(TARIFF_FOR_CALLS);
 		Parameters parameter = InitParameters.init(TARIFF_FOR_CALLS);
 		TariffForCallsBuilder builder = new TariffForCallsBuilder();
-		builder.buildName("Стандарт").buildOperatorName("МТС")
-				.buildPayroll(5.5).buildSmsPrice(0.15).buildFreeMinutes(200)
-				.buildListOfPrices(new CallPricesTypes(callsPrice))
-				.buildParameters(parameter);
-		temp.add(builder.getInstance());
+		builder.freeMinutes(200).name("Стандарт").operatorName("МТС")
+				.payroll(5.5).smsPrice(0.15)
+				.listOfPrices(new CallPricesTypes(callsPrice))
+				.parameters(parameter);
+		temp.add(builder.getTariff());
 		return temp;
 	}
 

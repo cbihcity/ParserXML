@@ -8,6 +8,4 @@ public class RunnerBeans {
 		tariffs.getTariffForCalls().getListOfTariff().forEach(item->System.out.println(item));
 		tariffs.getTariffForInternet().getListOfTariff().forEach(item->System.out.println(item));
 	}
-	
-	
 }
