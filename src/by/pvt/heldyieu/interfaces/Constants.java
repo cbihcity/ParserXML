@@ -18,6 +18,7 @@ public interface Constants {
 	String MESSAGE_SORT_LIST= "Отсортированный список тарифов по абонентской плате :";
 	String END_DOM_PARSER= "PARSING XML WITH DOMPARSER IS FINISHED\n"+DELIMITER;
 	String END_SAX_PARSER= "PARSING XML WITH SAXPARSER IS FINISHED\n"+DELIMITER;
+	String END_StAX_PARSER= "PARSING XML WITH StAXPARSER IS FINISHED\n"+DELIMITER;
 	String INCORRECT_INPUT_VALUE_FOR_SCANNER= "Неправильно введен номер пункта меню. Повторите ввод";
 	String MYSMATCH_TYPE_INPUT_VALUE_FOR_SCANNER= "Неверный тип ввходных данных. Повторите ввод";
 	String ERROR_CLOSING_SCANNER = "Произошла ошибка при попытке закрыть поток. ";

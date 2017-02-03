@@ -99,4 +99,22 @@ public class ManagementOperations implements Constants{
 				logger.info(e.getMessage());
 			}
 	}
+
+	public static void parseWithStAXParser() {
+		logger.info("Try to make TariffsStAXBuilder");		
+		try {
+			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_STAX_PARSER);
+			tariffBuilder.buildTariffs(XML_FILENAME);
+			tariffForCalls = tariffBuilder.getTariffForCalls();
+			System.out.println(tariffForCalls.toString());
+			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+			tariffForInternet = tariffBuilder.getTariffForInternet();
+			System.out.println(tariffForInternet.toString());
+			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
+			System.out.println(END_StAX_PARSER);
+		} catch (InvalidValueException e) {
+			logger.info(e.getMessage());
+		}
+		
+	}
 }

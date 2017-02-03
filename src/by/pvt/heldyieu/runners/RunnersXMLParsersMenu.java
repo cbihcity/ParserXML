@@ -29,6 +29,7 @@ public class RunnersXMLParsersMenu implements Constants {
 					break;
 					
 				case 4:
+					ManagementOperations.parseWithStAXParser();
 					break;
 					
 				case 5:
