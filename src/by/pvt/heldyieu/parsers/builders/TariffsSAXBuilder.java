@@ -41,11 +41,9 @@ public class TariffsSAXBuilder extends AbstractTariffsBuilder implements Constan
 			System.err.println(SAX_ERROR + e);
 			logger.error(SAX_ERROR, e);
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(SAX_ERROR, e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(SAX_ERROR, e);
 		}
 		
 	}
