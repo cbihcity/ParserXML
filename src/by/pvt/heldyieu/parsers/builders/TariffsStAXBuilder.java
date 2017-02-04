@@ -43,6 +43,7 @@ public class TariffsStAXBuilder extends AbstractTariffsBuilder implements Consta
 					.getCurrentTariffForCalls().getListOfTariff());
 		} catch (FileNotFoundException e) {
 			System.err.println("File " + filename + " not found");
+			logger.error(e.getMessage());
 		}
 	}
 }

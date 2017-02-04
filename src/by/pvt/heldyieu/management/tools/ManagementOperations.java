@@ -1,11 +1,19 @@
 package by.pvt.heldyieu.management.tools;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.beans.singletone.TariffForCalls;
 import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 import by.pvt.heldyieu.beans.tariff.Tariff;
@@ -114,6 +122,46 @@ public class ManagementOperations implements Constants{
 			System.out.println(END_StAX_PARSER);
 		} catch (InvalidValueException e) {
 			logger.info(e.getMessage());
+		}
+		
+	}
+
+	public static void convertXMLtoHTML() {
+		
+			   try {
+				   
+			    Source xmlSource = new StreamSource(XML_FILENAME);
+			    Source xsltSource = new StreamSource(XSL_FILNAME);
+			    FileOutputStream outputStream = new FileOutputStream(HTML_FILNAME);
+			    Result result = new StreamResult(outputStream);
+			    TransformerFactory factory = TransformerFactory.newInstance();
+			    Transformer transformer = factory.newTransformer(xsltSource);
+			    logger.info("Try to transform xml to html");
+			    transformer.transform(xmlSource, result);
+			    printResult(true);
+			   }
+			   catch (TransformerConfigurationException e) {
+			    printResult(false);
+			    System.out.println("Transformer Configuration is invalid");
+			    logger.error(e.getMessage());
+			   }
+			   catch (TransformerException e) {
+			    printResult(false);
+			    System.out.println("Transformer is invalid");
+			    logger.error(e.getMessage());
+			   }
+			   catch (FileNotFoundException e) {
+			    printResult(false);
+			    System.out.println("Some files are not found");
+			    logger.error(e.getMessage());
+			   }
+			  }
+
+	private static void printResult(boolean result) {
+		if (result) {
+			System.out.println(XML_CONVERT_SUCCESS);
+		} else {
+			System.out.println();
 		}
 		
 	}

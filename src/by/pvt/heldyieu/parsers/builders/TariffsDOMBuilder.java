@@ -32,20 +32,21 @@ public class TariffsDOMBuilder extends AbstractTariffsBuilder implements Constan
 	public void buildTariffs(String filename){
 		try {
 			System.out.println();
+			logger.info("Start to parse...");
 			Document doc = docBuilder.parse(filename);
 			Element root = doc.getDocumentElement();
 			System.out.println("Root element : "+root.getNodeName());
 			System.out.println(DELIMITER);
 			NodeList internetList = doc.getElementsByTagName(TARIFF_FOR_INTERNET);
+			logger.info("Get list of Internet tariffs");
 			tariffForInternet.setListOfTariff(OperationsDOMParsers.buildTariffsParser(internetList, TARIFF_FOR_INTERNET));
 			NodeList callsList = doc.getElementsByTagName(TARIFF_FOR_CALLS);
+			logger.info("Get list of Calls tariffs");
 			tariffForCalls.setListOfTariff(OperationsDOMParsers.buildTariffsParser(callsList, TARIFF_FOR_CALLS));
 		}
 			catch (SAXException e) {
-				System.err.println(SAX_ERROR + e);
 				logger.error(SAX_ERROR, e);
 			} catch (IOException e) {
-				System.err.println(IO_ERROR + filename);
 				logger.error(IO_ERROR + filename, e);
 			}
 	}

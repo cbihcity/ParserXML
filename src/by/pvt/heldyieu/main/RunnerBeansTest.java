@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.runners;
+package by.pvt.heldyieu.main;
 
 import by.pvt.heldyieu.beans.singletone.Tariffs;
 
