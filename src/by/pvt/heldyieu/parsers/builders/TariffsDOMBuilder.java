@@ -14,9 +14,9 @@ import by.pvt.heldyieu.interfaces.Constants;
 import by.pvt.heldyieu.parsers.tools.OperationsDOMParsers;
 
 public class TariffsDOMBuilder extends AbstractTariffsBuilder implements Constants {
+	
 	static Logger logger = Logger.getLogger(TariffsDOMBuilder.class.getName());
 	private DocumentBuilder docBuilder;
-	
 	
 	public TariffsDOMBuilder() {
 		super();
@@ -25,7 +25,7 @@ public class TariffsDOMBuilder extends AbstractTariffsBuilder implements Constan
 			docBuilder = factory.newDocumentBuilder();
 		} 
 		catch(ParserConfigurationException e){
-			System.err.println(CONFIGURATION_ERROR + e);
+			logger.error(CONFIGURATION_ERROR + e);
 		}
 	}
 

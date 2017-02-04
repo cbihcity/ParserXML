@@ -61,7 +61,7 @@ public class TariffForCalls implements Constants {
 	 */
 	@Override
 	public String toString() {
-		return "\nТарифы для звонков";
+		return TARIFF_FOR_CALLS_TOSTRING;
 	}
 	
 }

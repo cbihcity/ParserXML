@@ -1,7 +1,6 @@
 package by.pvt.heldyieu.xml.unmarshaller;
 
 import java.io.File;
-
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;

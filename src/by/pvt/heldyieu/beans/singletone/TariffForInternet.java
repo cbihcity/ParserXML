@@ -63,7 +63,7 @@ public class TariffForInternet implements Constants {
 	 */
 	@Override
 	public String toString() {
-		return "\nТарифы для интернета";
+		return TARIFF_FOR_INTERNET_TOSTRING;
 	}
 	
 

@@ -2,8 +2,10 @@ package by.pvt.heldyieu.beans.callprices;
 
 import java.util.List;
 
+import by.pvt.heldyieu.interfaces.Constants;
 
-public class CallPricesTypes {
+
+public class CallPricesTypes implements Constants {
 	 protected List<CallPrices> prices;
 	 
 	/**
@@ -42,8 +44,7 @@ public class CallPricesTypes {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		prices.forEach(item->sb.append(item.getName()+" - "+item.getCost()+"\n"));
-		return "разновидность стоимости звонков :\n"+ sb;
+		return CALLS_TYPES_TOSTRING + sb;
 	}
-
 	
 }

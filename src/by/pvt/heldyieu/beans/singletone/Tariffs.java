@@ -43,8 +43,7 @@ public final class Tariffs {
 	 */
 	@Override
 	public String toString() {
-		return "Tariffs [tariffForInternet=" + tariffForInternet
-				+ ", tariffForCalls=" + tariffForCalls + "]";
+		return "";
 	}
 	
 }

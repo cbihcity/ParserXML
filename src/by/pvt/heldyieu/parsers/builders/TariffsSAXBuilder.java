@@ -15,8 +15,8 @@ import by.pvt.heldyieu.interfaces.Constants;
 import by.pvt.heldyieu.parsers.tools.TariffSAXHandler;
 
 public class TariffsSAXBuilder extends AbstractTariffsBuilder implements Constants {
+	
 	static Logger logger = Logger.getLogger(TariffsSAXBuilder.class.getName());
-
 	
 	public TariffsSAXBuilder() {
 		super();

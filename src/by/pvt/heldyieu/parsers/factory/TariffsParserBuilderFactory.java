@@ -18,7 +18,7 @@ public class TariffsParserBuilderFactory implements Constants{
 		case TYPE_STAX_PARSER:
 			return new TariffsStAXBuilder();
 		default :
-			throw new InvalidValueException("Неверно задан параметр для создания Парсера ", typeParser); 
+			throw new InvalidValueException(INVALID_PARSER_PARAMETER, typeParser); 
 		}
 	}
 }

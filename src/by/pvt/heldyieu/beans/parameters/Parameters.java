@@ -1,5 +1,6 @@
 package by.pvt.heldyieu.beans.parameters;
 
+import by.pvt.heldyieu.exceptions.InvalidValueException;
 import by.pvt.heldyieu.interfaces.Constants;
 
 public class Parameters implements Constants {
@@ -7,9 +8,6 @@ public class Parameters implements Constants {
 	protected String tariffication;
 	protected double subscribeCost;
 
-	/**
-		 * 
-		 */
 	public Parameters() {
 		super();
 	}
@@ -18,13 +16,18 @@ public class Parameters implements Constants {
 	 * @param favouriteNumber
 	 * @param tariffication
 	 * @param subscribeCost
+	 * @throws InvalidValueException 
 	 */
 	public Parameters(double favouriteNumber, String tariffication,
-			double subscribeCost) {
-		super();
-		this.favouriteNumber = favouriteNumber;
-		this.tariffication = tariffication;
-		this.subscribeCost = subscribeCost;
+			double subscribeCost) throws InvalidValueException {
+		if (favouriteNumber < 0 || tariffication == null || subscribeCost < 0) {
+			throw new InvalidValueException("Объект класса "
+					+ this.getClass().getName() + " не создан.");
+		} else {
+			this.favouriteNumber = favouriteNumber;
+			this.tariffication = tariffication;
+			this.subscribeCost = subscribeCost;
+		}
 	}
 
 	/**

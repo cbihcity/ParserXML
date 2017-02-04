@@ -2,7 +2,6 @@ package by.pvt.heldyieu.parsers.tools;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -153,22 +152,16 @@ public class TariffSAXHandler extends DefaultHandler implements Constants{
 	}
 	
 	public void warning(SAXParseException ex) {
-		System.err.println("Warning: " + ex);
-		System.err.println("line = " + ex.getLineNumber() + "  col = "
-				+ ex.getColumnNumber());
+		logger.error(ex.getMessage());
 	}
 
 	// Method for the messages about parsing errors
 	public void error(SAXParseException ex) {
-		System.err.println("Error: " + ex);
-		System.err.println("line = " + ex.getLineNumber() + "  col = "
-				+ ex.getColumnNumber());
+		logger.error(ex.getMessage());
 	}
 
 	// Method for the messages about parsing fatalErrors
 	public void fatalError(SAXParseException ex) {
-		System.err.println("Fatal error: " + ex);
-		System.err.println("line = " + ex.getLineNumber() + "  col = "
-				+ ex.getColumnNumber());
+		logger.error(ex.getMessage());
 	}
 }

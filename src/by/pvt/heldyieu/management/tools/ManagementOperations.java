@@ -85,7 +85,6 @@ public class ManagementOperations implements Constants{
 	}
 
 	public static void parseWithSAXParser() {
-		
 			try {
 				logger.info("Try to make TariffsSAXBuilder");
 				tariffBuilder = builderFactory.createTariffsBuilder(TYPE_SAX_PARSER);
@@ -111,13 +110,19 @@ public class ManagementOperations implements Constants{
 	public static void parseWithStAXParser() {
 		logger.info("Try to make TariffsStAXBuilder");		
 		try {
+			logger.info("Try to make TariffsStAXBuilder");
 			tariffBuilder = builderFactory.createTariffsBuilder(TYPE_STAX_PARSER);
+			logger.info("Parsing xml with TariffsStAXBuilder");
 			tariffBuilder.buildTariffs(XML_FILENAME);
+			logger.info("get TariffForCalls instance after parsing");
 			tariffForCalls = tariffBuilder.getTariffForCalls();
 			System.out.println(tariffForCalls.toString());
+			logger.info("print list tariffs of TariffsForCalls"); 
 			tariffForCalls.getListOfTariff().forEach(item->System.out.println(item));
+			logger.info("get TariffForInternet instance after parsing");
 			tariffForInternet = tariffBuilder.getTariffForInternet();
 			System.out.println(tariffForInternet.toString());
+			logger.info("print list tariffs of TariffsForInternet"); 
 			tariffForInternet.getListOfTariff().forEach(item->System.out.println(item));
 			System.out.println(END_StAX_PARSER);
 		} catch (InvalidValueException e) {

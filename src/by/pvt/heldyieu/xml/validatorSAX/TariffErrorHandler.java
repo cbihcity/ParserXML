@@ -9,7 +9,7 @@ import org.apache.log4j.SimpleLayout;
 public class TariffErrorHandler extends DefaultHandler {
 	private Logger logger = Logger.getLogger(TariffErrorHandler.class.getName());
 	public TariffErrorHandler(String log) throws IOException {
-		// установка файла и формата вывода ошибок
+		logger.info("установка файла и формата вывода ошибок");
 		logger.addAppender(new FileAppender(new SimpleLayout(), log));
 	}
 
@@ -26,7 +26,7 @@ public class TariffErrorHandler extends DefaultHandler {
 	}
 
 	private String getLineAddress(SAXParseException e) {
-		// определение строки и столбца ошибки
+		logger.info("определение строки и столбца ошибки");
 		return e.getLineNumber() + " : " + e.getColumnNumber();
 	}
 }

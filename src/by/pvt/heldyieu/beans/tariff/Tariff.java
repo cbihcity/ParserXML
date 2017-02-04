@@ -6,8 +6,10 @@ import java.util.Comparator;
 
 
 
+
 import by.pvt.heldyieu.beans.callprices.CallPricesTypes;
 import by.pvt.heldyieu.beans.parameters.Parameters;
+import by.pvt.heldyieu.exceptions.InvalidValueException;
 
 public class Tariff implements Comparator<Tariff> {
 
@@ -33,19 +35,31 @@ public class Tariff implements Comparator<Tariff> {
 	 * @param freeGygabytes
 	 * @param freeMinutes
 	 * @param parameters
+	 * @throws InvalidValueException 
 	 */
 	public Tariff(String name, String operatorName, double payroll,
 			CallPricesTypes callPrices, double smsPrice, double freeGygabytes,
-			int freeMinutes, Parameters parameters) {
-		super();
-		this.name = name;
-		this.operatorName = operatorName;
-		this.payroll = payroll;
-		this.callPrices = callPrices;
-		this.smsPrice = smsPrice;
-		this.freeGygabytes = freeGygabytes;
-		this.freeMinutes = freeMinutes;
-		this.parameters = parameters;
+			int freeMinutes, Parameters parameters)
+			throws InvalidValueException {
+		if (name == null || operatorName == null 
+				|| payroll < 0
+				|| callPrices == null 
+				|| smsPrice < 0 
+				|| freeGygabytes < 0
+				|| freeMinutes < 0 
+				|| parameters == null) {
+			throw new InvalidValueException("Объект класса "
+					+ this.getClass().getName() + " не создан.");
+		} else {
+			this.name = name;
+			this.operatorName = operatorName;
+			this.payroll = payroll;
+			this.callPrices = callPrices;
+			this.smsPrice = smsPrice;
+			this.freeGygabytes = freeGygabytes;
+			this.freeMinutes = freeMinutes;
+			this.parameters = parameters;
+		}
 	}
 
 	/**
@@ -266,7 +280,4 @@ public class Tariff implements Comparator<Tariff> {
 				+ "\n" : "")+ (freeMinutes != 0 ? "количество бесплатных минут : " + freeMinutes + "\n" : "")
 				+ (parameters != null ? "дополнительные параметры :\n" + parameters : "");
 	}
-
-
-	
 }

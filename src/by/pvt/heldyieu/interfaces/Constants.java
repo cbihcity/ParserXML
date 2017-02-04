@@ -7,6 +7,8 @@ public interface Constants {
 	int CHOICE_4 = 4;
 	int CHOICE_5 = 5;
 	int CHOICE_0 = 0;
+	String TARIFF_FOR_CALLS_CHOICE = "tariffForCalls";
+	String TARIFF_FOR_INERNET_CHOICE = "tariffForInternet";
 	String DELIMITER = "====================";
 	String TARIFF_FOR_INTERNET = "tariffForInternet";
 	String TARIFF_FOR_CALLS = "tariffForCalls";
@@ -30,9 +32,13 @@ public interface Constants {
 	String INCORRECT_INPUT_VALUE_FOR_SCANNER = "Неправильно введен номер пункта меню. Повторите ввод";
 	String MYSMATCH_TYPE_INPUT_VALUE_FOR_SCANNER = "Неверный тип ввходных данных. Повторите ввод";
 	String ERROR_CLOSING_SCANNER = "Произошла ошибка при попытке закрыть поток. ";
+	String INVALID_PARSER_PARAMETER = "Неверно задан параметр для создания Парсера ";
 	String WORK_IS_DONE = "Работа завершена.\n" + DELIMITER;
 	String XML_CONVERT_SUCCESS = "Xml-файл успешно преобразован в html-файл. " + HTML_FILNAME;
 	String XML_CONVERT_ERROR = "Ошибка при преобразовании xml-файла";
+	String CALLS_TYPES_TOSTRING = "разновидность стоимости звонков :\n";
+	String TARIFF_FOR_CALLS_TOSTRING = "\nТарифы для звонков";
+	String TARIFF_FOR_INTERNET_TOSTRING = "\nТарифы для интернета";
 	String MENU = "Выберите действие:\n"
 			+ "1. Проверить валидность xml-файла на основе его xsd схемы\n"
 			+ "2. Распарсить xml-файл с помощью DOMParser\n"

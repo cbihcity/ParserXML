@@ -46,14 +46,12 @@ public class TariffForInernetBuilder extends AbstractTariffBuilder {
 	
 	protected void tariffCreate() {
 		if (tariffIsValid()) {
-			tariff = new Tariff(name, operatorName, payroll, callPrices, smsPrice, freeGygabytes, freeMinutes, parameters);
-			cleanTariffInstance();
-		} else {
 			try {
-				throw new InvalidValueException("can't build tariff");
+				tariff = new Tariff(name, operatorName, payroll, callPrices, smsPrice, freeGygabytes, freeMinutes, parameters);
 			} catch (InvalidValueException e) {
 				logger.error(e.getMessage());
 			}
-		}
+			cleanTariffInstance();
+		} 
 	}
 }

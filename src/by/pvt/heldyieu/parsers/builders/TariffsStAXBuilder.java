@@ -1,17 +1,13 @@
 package by.pvt.heldyieu.parsers.builders;
 
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.beans.singletone.TariffForCalls;
 import by.pvt.heldyieu.beans.singletone.TariffForInternet;
 import by.pvt.heldyieu.interfaces.Constants;
 import by.pvt.heldyieu.parsers.tools.OperationsStAXParsers;
-
 
 public class TariffsStAXBuilder extends AbstractTariffsBuilder implements Constants {
 	private static final Logger logger = Logger.getLogger(OperationsStAXParsers.class.getName());
@@ -42,7 +38,6 @@ public class TariffsStAXBuilder extends AbstractTariffsBuilder implements Consta
 			tariffForCalls.setListOfTariff(tariffsParsers
 					.getCurrentTariffForCalls().getListOfTariff());
 		} catch (FileNotFoundException e) {
-			System.err.println("File " + filename + " not found");
 			logger.error(e.getMessage());
 		}
 	}
