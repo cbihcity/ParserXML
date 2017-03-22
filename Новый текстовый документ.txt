@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 dsfdsfgfhgfhgf
 df
+=======
+dsfdsf
+>>>>>>> parent of ba0a6b7... commit
